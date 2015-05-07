@@ -1,0 +1,28 @@
+{
+  "name": "webmaker-desktop",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha ./test/unit/*.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mozilla/webmaker-desktop"
+  },
+  "license": "MPL",
+  "bugs": {
+    "url": "https://github.com/mozilla/webmaker-desktop/issues"
+  },
+  "homepage": "https://github.com/mozilla/webmaker-desktop",
+  "dependencies": {
+    "fuel-soap": "1.1.0",
+    "habitat": "3.1.2",
+    "hapi": "8.4.0",
+    "joi": "6.4.1"
+  },
+  "devDependencies": {
+    "mocha": "~2.2.4",
+    "mofo-style": "~1.0.1"
+  }
+}
