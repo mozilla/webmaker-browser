@@ -22,5 +22,8 @@
   "devDependencies": {
     "mocha": "~2.2.4",
     "mofo-style": "~1.0.1"
+  },
+  "engines": {
+    "node": "0.12.2"
   }
 }
