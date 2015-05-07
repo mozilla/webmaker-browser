@@ -1,7 +1,6 @@
-require('habitat').load();
-
 var Hapi = require('hapi');
 var Path = require('path');
+var routes = require('./lib/routes');
 
 // Create server
 var server = new Hapi.Server({
@@ -18,29 +17,8 @@ server.connection({
   port: process.env.PORT || 8000
 });
 
-// Routes
-server.route({
-  method: 'GET',
-  path: '/',
-  handler: function (request, reply) {
-    reply.file('index.html');
-  }
-});
-
-server.route({
-  method: 'GET',
-  path: '/{path}/{param*}',
-  handler: {
-    directory: {
-      path: [
-        'css',
-        'fonts',
-        'images',
-        'js'
-      ]
-    }
-  }
-});
+// Route handlers
+routes(server);
 
 // Start listening
 server.start(function () {

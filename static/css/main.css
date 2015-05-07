@@ -6,22 +6,131 @@
   font-weight: normal;
 }
 
-h1, h2, h3, h4 {
+body {
+  display: block;
+  background-color: #f0f2f7;
+}
 
+h1 {
+  margin: 0;
+  font-size: 2.4rem;
+  font-weight: 400;
+}
+
+h2 {
+  margin: 0;
+  font-size: 1.58rem;
+  font-weight: 200;
 }
 
 p {
 
 }
 
+button {
+  display: inline-block;
+  width: 88px;
+  height: 54px;
+
+  border: none;
+  outline: none;
+  background: none;
+
+  color: #669eff;
+  border-radius: 50%;
+  background-color: white;
+}
+
+input[type="text"] {
+  display: inline-block;
+  width: 244px;
+
+  border: none;
+  outline: none;
+  background: none;
+
+  border-bottom: 2px solid rgba(255, 255, 255, 0.7);
+}
+
+input[type="checkbox"] {
+  display: inline-block;
+  width: 22px;
+  height: 22px;
+
+  border: none;
+  outline: none;
+  background: none;
+
+  vertical-align: middle;
+}
+
+label {
+  font-size: 0.8rem;
+}
+
+/* ----------------------------- */
+
 /**
- * IDs
+ * Masthead
  */
+#masthead {
+  padding: 35px 0;
+
+  color: white;
+  border-bottom: 1px solid #4b80b7;
+
+  background: #4c88ef;
+  background: -moz-linear-gradient(-45deg,  #4c88ef 0%, #17e4d9 100%);
+  background: -webkit-gradient(linear, left top, right bottom, color-stop(0%,#4c88ef), color-stop(100%,#17e4d9));
+  background: -webkit-linear-gradient(-45deg,  #4c88ef 0%,#17e4d9 100%);
+  background: -o-linear-gradient(-45deg,  #4c88ef 0%,#17e4d9 100%);
+  background: -ms-linear-gradient(-45deg,  #4c88ef 0%,#17e4d9 100%);
+  background: linear-gradient(135deg,  #4c88ef 0%,#17e4d9 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#4c88ef', endColorstr='#17e4d9',GradientType=1 );
+}
+
+#header {
+
+}
+
+#signup {
+
+}
+
+#hero {
+
+}
+
+/**
+ * Mid
+ */
+#mid {
+  padding: 20px 0;
+  background-color: white;
+}
+
+/**
+ * Footer
+ */
+#footer {
+  display: block;
+  text-align: center;
+
+  border-top: 1px solid #d7d9de;
+}
+
+/* ----------------------------- */
 
 /**
  * Classes
  */
 
+/* ----------------------------- */
+
 /**
  * Utility
  */
+.inner {
+  width: 966px;
+  margin: 0 auto;
+}

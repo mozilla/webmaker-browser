@@ -17,7 +17,8 @@
   "homepage": "https://github.com/mozilla/webmaker-desktop",
   "dependencies": {
     "habitat": "3.1.2",
-    "hapi": "8.4.0"
+    "hapi": "8.4.0",
+    "request": "~2.55.0"
   },
   "devDependencies": {
     "mocha": "~2.2.4",
