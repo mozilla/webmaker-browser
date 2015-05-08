@@ -13,7 +13,7 @@ var server = new Hapi.Server({
   }
 });
 
-server.connection({ 
+server.connection({
   port: process.env.PORT || 8000
 });
 
@@ -22,5 +22,5 @@ routes(server);
 
 // Start listening
 server.start(function () {
-    console.log('Server running at:', server.info.uri);
+  console.log('Server running at:', server.info.uri);
 });
