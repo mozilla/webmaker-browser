@@ -196,6 +196,32 @@ a:visited {
   border-top: 1px solid #d7d9de;
 }
 
+#footer h2 {
+  margin-top: 40px;
+  color: #36515b;
+}
+
+#footer img {
+  margin-top: 40px;
+}
+
+#footer ul {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  width: 300px;
+  margin: 40px auto;
+  padding: 0;
+  list-style: none;
+}
+
+#footer ul li {
+  display: block;
+  margin: auto;
+  font-size: 0.9em;
+  color: #aaafbd;
+}
+
 /* ----------------------------- */
 
 /**
