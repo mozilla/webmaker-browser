@@ -23,8 +23,14 @@ h2 {
   font-weight: 200;
 }
 
+h4 {
+  margin: 0;
+  font-size: 1.3rem;
+  font-weight: 500;
+}
+
 p {
-  font-weight: normal;
+  margin: 0;
 }
 
 button {
@@ -141,8 +147,43 @@ a:visited {
  * Mid
  */
 #mid {
-  padding: 20px 0;
+  padding: 100px 0 100px 0;
   background-color: white;
+}
+
+#mid .inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+#mid .segment {
+  display: inline-block;
+  width: 296px;
+  height: 110px;
+
+  margin: auto;
+  color: #707c8c;
+}
+
+#mid .quote {
+  font-size: 1.3rem;
+}
+
+#mid .quote .signature {
+  display: block;
+  font-size: 0.9rem;
+  margin-top: 4px;
+}
+
+#mid .feature h4 {
+  color: #3f505b;
+}
+
+#mid .feature p {
+  font-size: 1.0rem;
+  line-height: 1.65rem;
+  margin-top: 6px;
 }
 
 /**
