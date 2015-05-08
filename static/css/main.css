@@ -147,8 +147,8 @@ a:visited {
 
 #masthead #hero {
   position: absolute;
-  top: 100px;
-  left: calc(100% - 290px);
+  top: 112px;
+  left: calc(100% - 300px);
 }
 
 /**
