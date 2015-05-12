@@ -146,6 +146,19 @@ a:visited {
   margin-top: 10px;
 }
 
+#masthead #signup form.hide {
+  display: none;
+}
+
+#masthead #signup #thanks {
+  display: none;
+  margin-top: 82px;
+}
+
+#masthead #signup #thanks.show {
+  display: block;
+}
+
 #masthead #hero {
   position: absolute;
   top: 112px;
