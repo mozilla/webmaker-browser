@@ -2,7 +2,7 @@
 
   var thanksInQuery = window.location.search === '?thanks';
 
-  var form = document.querySelector('#signup #thanks');
+  var thanks = document.querySelector('#signup #thanks');
   var form = document.querySelector('#signup form');
   var formCheckbox = form.querySelector('input[name="optin"]');
   var formEmail = form.querySelector('input[name="email"]');
