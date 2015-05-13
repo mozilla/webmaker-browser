@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta content="text/html; charset=utf-8">    
+    <meta content="text/html; charset=utf-8">
     <script src="//cdn.optimizely.com/js/206878104.js"></script>
 
     <meta http-equiv="x-ua-compatible" content="ie=edge">
@@ -25,21 +25,27 @@
           <h1>Connect the things you love.</h1>
           <h2>Capture, collect, and share with your friends.</h2>
 
-          <form>
+          <div id="thanks">
+            <h3>Thanks for signing up! We'll be in touch soon.</h3>
+          </div>
+
+          <form method="post" action="/signup">
             <div>
               <input type="text" name="email" placeholder="Email me when it’s ready" />
               <button type="submit">Go</button>
             </div>
-            
+            <div class="tooltip email">This email doesn't appear to be valid.</div>
+
             <div id="optin">
               <input type="checkbox" name="optin" value="1" />
-              <label>By submitting, I agree to Webmaker‘s <a href="https://webmaker.org/en-US/terms" target="_blank">Terms of Service</a> and <a href="https://webmaker.org/en-US/privacy" target="_blank">Privacy Policy</a>.</label>
+              <label>By submitting, I agree to Webmaker‘s <a href="https://www.mozilla.org/en-US/privacy/websites/" target="_blank">Privacy Policy</a>.</label>
+              <div class="tooltip optin">Oops! You forgot to check this.</div>
             </div>
           </form>
         </div>
 
         <div id="hero">
-          <img src="./images/hero@2x.png" width="215" height="504" alt="" />
+          <img src="./images/hero@2x.png" width="260" alt="The Mozilla Webmaker for Android App" />
         </div>
       </div>
     </div>
@@ -47,17 +53,17 @@
     <div id="mid">
       <div class="inner">
         <div class="segment quote">
-          <p>"So easy to share my own pages. It is positively incredible!" <span class="signature">– Ricardo Vazquez</span></p> 
+          <p>"There's no better way to learn the mechanics and culture of the web than by playing around and hacking it in a safe, fun environment." <span class="signature">– Lifehacker</span></p>
         </div>
 
         <div class="segment feature">
-          <h4>Make Pages</h4>
-          <p>Lorem ipsum dolor sit amet dolor sit amet Bill Murray. Something blah blah blah something else.</p>
+          <h4>Local Content</h4>
+          <p>We all use the web in different ways. Mozilla is dedicated to helping you build a web that’s relevant to your friends, family, business or community.</p>
         </div>
 
         <div class="segment feature">
           <h4>Free Forever</h4>
-          <p>Lorem ipsum dolor sit amet dolor sit amet Bill Murray. Something blah blah blah something else.</p>
+          <p>Mozilla is a non-profit organization and these open-source tools are created by a global community. They will always be 100% free — now and forever!</p>
         </div>
       </div>
     </div>
