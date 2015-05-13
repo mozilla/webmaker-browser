@@ -7,11 +7,6 @@ var server = new Hapi.Server({
   connections: {
     router: { stripTrailingSlash: true },
     routes: {
-      security: {
-        xss: true,
-        noOpen: true,
-        noSniff: true
-      },
       files: { relativeTo: Path.join(__dirname, 'static') }
     }
   }
