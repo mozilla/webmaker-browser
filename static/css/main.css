@@ -170,6 +170,46 @@ a:visited {
   transform: translateY(-10px);
 }
 
+#signup .tooltip.email, #signup .tooltip.optin {
+  position: relative;
+  z-index: 98;
+  width: 230px;
+  left: 0;
+  color: #3f505b;
+  border-radius: 3px;
+  background-color: rgba(255, 255, 255, 0.85);
+  padding: 8px;
+  font-size: .7em;
+  margin-top: 10px;
+  text-align: center;
+  font-weight: 500;
+  display: none;
+}
+
+#signup .tooltip.email:before, #signup .tooltip.optin:before {
+  border: solid;
+  border-color: rgba(255, 255, 255, 0.85) transparent;
+  border-width: 0px 6px 6px 6px;
+  content: "";
+  top: -6px;
+  left: 50%;
+  margin-left: -3px;
+  position: absolute;
+  z-index: 99;
+}
+
+#signup .tooltip.optin:before {
+  left: 6px;
+}
+
+#signup form[data-errors*="email"] .tooltip.email {
+  display: block;
+}
+
+#signup form[data-errors*="optin"] .tooltip.optin {
+  display: block;
+}
+
 /**
  * Mid
  */
