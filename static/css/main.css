@@ -283,7 +283,8 @@ a:visited {
 }
 
 #footer ul li {
-  display: block;
+  display: inline;
+  padding:25px;
   margin: auto;
   font-size: 0.9em;
   color: #aaafbd;
