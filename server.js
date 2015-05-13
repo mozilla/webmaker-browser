@@ -7,7 +7,12 @@ var server = new Hapi.Server({
   connections: {
     router: { stripTrailingSlash: true },
     routes: {
-      security: true,
+      security: {
+        xframe: {
+          rule: 'allow-from',
+          source: 'http://optimizely.com'
+        }
+      },
       files: { relativeTo: Path.join(__dirname, 'static') }
     }
   }
