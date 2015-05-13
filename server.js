@@ -10,7 +10,7 @@ var server = new Hapi.Server({
       security: {
         xframe: {
           rule: 'allow-from',
-          source: 'http://optimizely.com'
+          source: 'https://optimizely.com'
         }
       },
       files: { relativeTo: Path.join(__dirname, 'static') }
