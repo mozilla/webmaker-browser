@@ -230,8 +230,6 @@ a:visited {
   display: inline-block;
   width: 296px;
   height: auto;
-
-  margin: auto;
   color: #707c8c;
 }
 
@@ -329,6 +327,9 @@ a:visited {
  */
 
 
+
+
+
 @media (max-width: 980px) {
   h1 { 
     margin-bottom: .25em;
@@ -344,8 +345,8 @@ a:visited {
   }
 
   .inner {
-    width: auto;
-    margin: 0 1rem;
+    width: 600px;
+    margin: 0 auto;
   }
 
   #masthead #signup {
@@ -378,5 +379,12 @@ a:visited {
     margin-bottom: 2em; 
   }
 
+}
+
+@media (max-width: 768px) {
+  .inner {
+    width: auto;
+    margin: 0 1rem;
+  }
 }
 
