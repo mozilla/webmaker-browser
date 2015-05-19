@@ -14,6 +14,7 @@ body {
 h1 {
   margin: 0;
   font-size: 2.2rem;
+  line-height:1.15em;
   font-weight: 400;
   text-shadow: 0px 1px 0px rgba(0, 0, 0, 0.1);
 }
@@ -21,6 +22,7 @@ h1 {
 h2 {
   margin: 0;
   font-size: 1.38rem;
+  line-height:1.15em;
   font-weight: 200;
 }
 
@@ -227,9 +229,7 @@ a:visited {
 #mid .segment {
   display: inline-block;
   width: 296px;
-  height: 110px;
-
-  margin: auto;
+  height: auto;
   color: #707c8c;
 }
 
@@ -317,3 +317,74 @@ a:visited {
   color: white;
   opacity: 0.6;
 }
+
+
+
+/* ----------------------------- */
+
+/**
+ * Responsive
+ */
+
+
+
+
+
+@media (max-width: 980px) {
+  h1 { 
+    margin-bottom: .25em;
+  }
+
+  input[type="text"] {
+    font-size: 1rem;
+    width: 200px;
+  }
+
+  button { 
+    height: 40px; width:60px;
+  }
+
+  .inner {
+    width: 600px;
+    margin: 0 auto;
+  }
+
+  #masthead #signup {
+    margin: 60px 0 40px;
+  }
+
+  #masthead #signup #optin {
+    display: flex;
+    width: 260px;
+  }
+
+  #hero { 
+    display: none; 
+  }
+
+  #optin label {
+    margin-left: .5em;
+  }
+
+  #mid {
+    padding: 40px 0;
+  }
+
+  #mid .inner {
+    display: block;
+  }
+
+  #mid .segment {
+    width: 100%;
+    margin-bottom: 2em; 
+  }
+
+}
+
+@media (max-width: 768px) {
+  .inner {
+    width: auto;
+    margin: 0 1rem;
+  }
+}
+
