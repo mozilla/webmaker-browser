@@ -41,7 +41,7 @@ button {
   width: 88px;
   height: 50px;
   margin-left: 10px;
-  line-height:53.5px;
+  line-height:1em;
   border: none;
   outline: none;
   background: none;
