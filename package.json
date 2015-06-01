@@ -10,8 +10,8 @@
     "build:static": "ncp ./static ./build",
     "build:js": "webpack",
     "test": "npm-run-all test:**",
-    "test:jshint": "jshint -c node_modules/mofo-style/linters/.jshintrc lib static/js server.js",
-    "test:jscs": "jscs -c node_modules/mofo-style/linters/.jscsrc lib static/js server.js",
+    "test:jshint": "jshint -c node_modules/mofo-style/linters/.jshintrc server static/js server.js",
+    "test:jscs": "jscs -c node_modules/mofo-style/linters/.jscsrc server static/js server.js",
     "test:unit": "mocha -R spec ./test/unit/*.js"
   },
   "repository": {

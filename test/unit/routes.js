@@ -1,6 +1,6 @@
 var Hapi = require('hapi');
 var Path = require('path');
-var routes = require('../../lib/routes');
+var routes = require('../../server/routes');
 var expect = require('expect.js');
 
 // Create server
