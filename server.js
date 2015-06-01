@@ -1,13 +1,13 @@
 var Hapi = require('hapi');
 var Path = require('path');
-var routes = require('./lib/routes');
+var routes = require('./server/routes');
 
 // Create server
 var server = new Hapi.Server({
   connections: {
     router: { stripTrailingSlash: true },
     routes: {
-      files: { relativeTo: Path.join(__dirname, 'static') }
+      files: { relativeTo: Path.join(__dirname, 'build') }
     }
   }
 });
