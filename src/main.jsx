@@ -1,8 +1,8 @@
 var React = require('react');
 var Router = require('react-router');
 
-var Splash = require('./client/pages/splash/splash.jsx');
-var Thumbnail = require('./client/pages/thumbnail/thumbnail.jsx');
+var Splash = require('./pages/splash/splash.jsx');
+var Thumbnail = require('./pages/thumbnail/thumbnail.jsx');
 
 var Route = Router.Route;
 var NotFoundRoute = Router.NotFoundRoute;
