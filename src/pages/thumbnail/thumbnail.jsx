@@ -1,5 +1,5 @@
 var React = require('react');
-var xhr = require('xhr');
+var nets = require('nets');
 
 var ElementGroup = require('../../components/element-group/element-group.jsx');
 var types = require('../../components/el/el.jsx').types;
@@ -14,7 +14,7 @@ module.exports = React.createClass({
   componentWillMount: function () {
     var _this = this;
 
-    xhr({
+    nets({
       method: 'GET',
       uri: 'https://webmaker-api.herokuapp.com' +
         '/users/' + _this.props.query.user + 
