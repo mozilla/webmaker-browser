@@ -1,7 +1,7 @@
 var React = require('react/addons');
 var qs = require('qs');
 
-var Page = require('./client/views/page.jsx');
+var Page = require('./client/pages/page/page.jsx');
 
 var Client = React.createClass({
   mixins: [],
