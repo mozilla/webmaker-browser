@@ -1,5 +1,4 @@
 var React = require('react');
-var xhr = require('xhr');
 
 module.exports = React.createClass({
   getInitialState: function () {
