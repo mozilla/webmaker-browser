@@ -8,7 +8,7 @@ module.exports = React.createClass({
   getInitialState: function () {
     return {
       isLoading: true,
-      elements: []
+      elements: {}
     };
   },
   componentWillMount: function () {
@@ -17,9 +17,9 @@ module.exports = React.createClass({
     xhr({
       method: 'GET',
       uri: 'https://webmaker-api.herokuapp.com' +
-        '/users/' + this.props.user + 
-        '/projects/' + this.props.project + 
-        '/pages/' + this.props.page,
+        '/users/' + _this.props.query.user + 
+        '/projects/' + _this.props.query.project + 
+        '/pages/' + _this.props.query.page,
       json: {}
     }, function (err, res, body) {
       if (err || res.statusCode !== 200) {
@@ -34,7 +34,7 @@ module.exports = React.createClass({
   },
   render: function () {
     return (
-      <div id="page">
+      <div id="thumbnail">
         <div className="container">
           <div className="inner">
             <ElementGroup

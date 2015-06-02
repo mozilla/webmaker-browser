@@ -1,14 +1,20 @@
-@import "normalize";
 @import "colors";
 
-// Components -----------------------------------------------------------------
-@import "components/element-group/element-group";
+/**
+ * Components
+ */
 @import "components/el/el";
+@import "components/element-group/element-group";
 
-// Pages ----------------------------------------------------------------------
-@import "pages/page/page";
+/**
+ * Pages
+ */
+@import "pages/splash/splash";
+@import "pages/thumbnail/thumbnail";
 
-// General --------------------------------------------------------------------
+/**
+ * General
+ */
 *,
 *:after,
 *:before {
@@ -19,16 +25,15 @@
 }
 
 html {
+  font-family: "FiraSans", "Fira Sans", "Fira Sans OT", sans-serif;
+  font-weight: normal;
   height: 100%;
 }
 
 body {
+  display: block;
   height: 100%;
   margin: 0;
   padding: 0;
-  font-family: "FiraSans", "Fira Sans", "Fira Sans OT", sans-serif;
-}
-
-#app {
-  height: 100%;
+  background-color: #f0f2f7;
 }

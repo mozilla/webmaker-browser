@@ -6,12 +6,3 @@ sudo: false
 cache:
   directories:
   - node_modules
-deploy:
-  provider: heroku
-  api_key:
-    secure: kPmdL7/P08RI41kN5YKJ3T+GT+eDzef3ZiC4TUE4QI1RSIv9103RRvlaYxdlDk2hgLyeBoX1a5v/jgowMTjhYFRgcbuXiCzlH9xu0mTbFEmO6hQw8L6Alhi+/ocxvl7cWD4kpCtpey497dT9ZbGYk/Fze+VcKVSXiaUvOWKFqQ0=
-  app: 
-    master: webmaker-desktop-production
-    develop: webmaker-desktop-staging
-  on:
-    repo: mozilla/webmaker-desktop

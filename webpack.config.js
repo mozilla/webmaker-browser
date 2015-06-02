@@ -6,6 +6,10 @@ module.exports = {
     path: __dirname + '/build/js',
     filename: '[name].bundle.js'
   },
+  externals: {
+    'react': 'React',
+    'react/addons': 'React'
+  },
   module: {
     loaders: [
       {

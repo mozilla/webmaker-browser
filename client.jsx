@@ -1,26 +1,37 @@
-var React = require('react/addons');
-var qs = require('qs');
+var React = require('react');
+var Router = require('react-router');
 
-var Page = require('./client/pages/page/page.jsx');
+var Splash = require('./client/pages/splash/splash.jsx');
+var Thumbnail = require('./client/pages/thumbnail/thumbnail.jsx');
 
-var Client = React.createClass({
-  mixins: [],
-  getInitialState: function () {
-    var search = window.location.search.substr(1);
-    var params = qs.parse(search);
-    return params;
-  },
+var Route = Router.Route;
+var NotFoundRoute = Router.NotFoundRoute;
+var DefaultRoute = Router.DefaultRoute;
+var RouteHandler = Router.RouteHandler;
+
+/**
+ * Create base class
+ */
+var App = React.createClass({
   render: function () {
-    return (
-      <Page 
-        user={this.state.user} 
-        project={this.state.project} 
-        page={this.state.page} />
-    );
+    return <RouteHandler />;
   }
 });
 
-React.render(
-  <Client />,
-  document.getElementById('app')
+/**
+ * Define routes
+ */
+var Routes = (
+  <Route path="/" handler={App}>
+    <Route path="/thumbnail" handler={Thumbnail} />
+    <NotFoundRoute handler={Splash} />
+    <DefaultRoute handler={Splash} />
+  </Route>
 );
+
+/**
+ * Start router
+ */
+Router.run(Routes, Router.HashLocation, (Root) => {
+  React.render(<Root />, document.body);
+});
