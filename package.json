@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "",
   "scripts": {
-    "start": "npm run build && npm run webserver",
+    "start": "npm run build && node server.js",
     "build": "npm-run-all build:**",
     "build:clean": "rimraf ./build && mkdirp ./build",
     "build:static": "ncp ./static ./build",
@@ -11,8 +11,7 @@
     "build:js": "webpack",
     "test": "npm-run-all test:**",
     "test:lint": "jsxhint --harmony --config ./node_modules/mofo-style/linters/.jshintrc \"./src/{**,.}/*.{js,jsx}\"",
-    "test:unit": "mocha -R spec ./test/unit/*.js",
-    "webserver": "live-server ./build --port=8000 --quiet"
+    "test:unit": "mocha -R spec ./test/unit/*.js"
   },
   "repository": {
     "type": "git",
@@ -38,7 +37,6 @@
     "jsx-loader": "~0.13.2",
     "jsxhint": "~0.15.1",
     "less": "~2.5.1",
-    "live-server": "~0.7.1",
     "mkdirp": "~0.5.1",
     "mocha": "~2.2.5",
     "mofo-style": "~1.0.1",
