@@ -1,10 +1,19 @@
-var React = require('react');
+var React = require('react/addons');
+var nets = require('nets');
+var validator = require('email-validator');
 
 module.exports = React.createClass({
+  mixins: [
+    React.addons.LinkedStateMixin
+  ],
   getInitialState: function () {
     return {
-      emailError: null,
-      optinError: null
+      email: '',
+      optin: false,
+      complete: false,
+
+      emailError: false,
+      optinError: false
     };
   },
   render: function () {
@@ -20,22 +29,22 @@ module.exports = React.createClass({
               <h1>Connect the things you love.</h1>
               <h2>Capture, collect, and share with your friends.</h2>
 
-              <div id="thanks">
+              <div id="thanks" className={this.state.complete ? 'show': ''}>
                 <h3>Thanks for signing up! We'll be in touch soon.</h3>
               </div>
 
-              <form method="post" action="/signup">
+              <form className={this.state.complete ? 'hide': ''}>
                 <div>
-                  <input type="text" name="email" placeholder="Email me when it’s ready" />
-                  <button type="submit">Go</button>
+                  <input type="text" name="email" placeholder="Email me when it’s ready" valueLink={this.linkState('email')} />
+                  <button onClick={this.submit}>Go</button>
                 </div>
-                <div className="tooltip email">This email doesn't appear to be valid.</div>
+                <div className={"tooltip email" + (this.state.emailError ? 'show': '')}>This email doesn't appear to be valid.</div>
 
                 <div id="optin">
-                  <input type="checkbox" name="optin" value="1" />
-                  <label>By submitting, I agree to Webmaker‘s <a href="https://www.mozilla.org/en-US/privacy/websites/" target="_blank">Privacy Policy</a>.</label>
+                  <input id="optin-input" type="checkbox" checkedLink={this.linkState('optin')} />
+                  <label for="optin-input">By submitting, I agree to Webmaker‘s <a href="https://www.mozilla.org/en-US/privacy/websites/" target="_blank">Privacy Policy</a>.</label>
                 </div>
-                <div className="tooltip optin">Oops! You forgot to check this.</div>
+                <div className={"tooltip optin" + (this.state.optinError ? 'show': '')}>Oops! You forgot to check this.</div>
               </form>
             </div>
 
@@ -79,10 +88,43 @@ module.exports = React.createClass({
   },
 
   validate: function () {
+    // Update error states
+    var emailIsValid = validator.validate(this.state.email);
+    var optinIsValid = this.state.optin;
 
+    // Update error states
+    this.setState({
+      emailError: !emailIsValid,
+      optinError: !optinIsValid
+    });
+
+    return (emailIsValid && optinIsValid);
   },
 
-  submit: function () {
-    
+  submit: function (e) {
+    var _this = this;
+
+    // Prevent default form behavior
+    e.preventDefault();
+
+    // Validate & submit details to BSD & update state
+    if (_this.validate()) {
+      nets({
+        method: 'POST',
+        uri: '/signup',
+        json: {
+          email: _this.state.email
+        }
+      }, function (err, res, body) {
+        if (err) {
+          return console.error(err);
+        }
+
+        // Hide form and show form completion message
+        _this.setState({
+          complete: body.ok
+        });
+      }); 
+    }
   }
 });

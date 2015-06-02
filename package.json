@@ -11,6 +11,7 @@
     "build:js": "webpack",
     "test": "npm-run-all test:**",
     "test:lint": "jsxhint --harmony --config ./node_modules/mofo-style/linters/.jshintrc \"./src/{**,.}/*.{js,jsx}\"",
+    "test:unit": "mocha -R spec ./test/unit/*.js",
     "webserver": "live-server ./build --port=8000 --quiet"
   },
   "repository": {
@@ -24,8 +25,10 @@
   "dependencies": {
     "classnames": "2.1.2",
     "color": "0.8.0",
-    "react-router": "0.13.3",
-    "xhr": "2.0.1"
+    "email-validator": "1.0.1",
+    "hapi": "~8.6.0",
+    "nets": "3.1.0",
+    "react-router": "0.13.3"
   },
   "devDependencies": {
     "babel-core": "~5.4.7",
@@ -37,7 +40,7 @@
     "less": "~2.5.1",
     "live-server": "~0.7.1",
     "mkdirp": "~0.5.1",
-    "mocha": "~2.2.4",
+    "mocha": "~2.2.5",
     "mofo-style": "~1.0.1",
     "ncp": "~2.0.0",
     "npm-run-all": "~1.2.4",

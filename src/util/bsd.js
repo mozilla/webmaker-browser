@@ -1,4 +1,4 @@
-var xhr = require('xhr');
+var nets = require('nets');
 
 /**
  * Creates a new email subscription via BSD
@@ -9,7 +9,7 @@ var xhr = require('xhr');
  * @return {void}
  */
 module.exports = function (email, callback) {
-  xhr({
+  nets({
     method: 'POST',
     uri: 'https://sendto.mozilla.org/page/s/webmaker-for-android-beta-signup',
     form: {
