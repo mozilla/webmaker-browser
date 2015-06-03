@@ -12,24 +12,23 @@ module.exports = React.createClass({
     };
   },
   componentWillMount: function () {
-    var _this = this;
-
-    nets({
+    var options = {
       method: 'GET',
       uri: 'https://webmaker-api.herokuapp.com' +
-        '/users/' + _this.props.query.user + 
-        '/projects/' + _this.props.query.project + 
-        '/pages/' + _this.props.query.page,
+        '/users/' + this.props.query.user + 
+        '/projects/' + this.props.query.project + 
+        '/pages/' + this.props.query.page,
       json: {}
-    }, function (err, res, body) {
+    };
+
+    nets(options, (err, res, body) => {
+      this.setState({isLoading: false});
+
       if (err || res.statusCode !== 200) {
         return console.error('Could not fetch the page');
       }
 
-      _this.setState({
-        isLoading: false,
-        elements: _this.flatten(body.page.elements)
-      });
+      this.setState({elements: this.flatten(body.page.elements)});
     });
   },
   render: function () {
