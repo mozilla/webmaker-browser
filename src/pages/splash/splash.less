@@ -1,0 +1,369 @@
+#splash {
+  h1 {
+    margin: 0;
+    font-size: 2.2rem;
+    line-height:1.15em;
+    font-weight: 400;
+    text-shadow: 0px 1px 0px rgba(0, 0, 0, 0.1);
+  }
+
+  h2 {
+    margin: 0;
+    font-size: 1.38rem;
+    line-height:1.15em;
+    font-weight: 200;
+  }
+
+  h4 {
+    margin: 0;
+    font-size: 1.3rem;
+    font-weight: 500;
+  }
+
+  p {
+    margin: 0;
+  }
+
+  button {
+    display: inline-block;
+    width: 88px;
+    height: 50px;
+    margin-left: 10px;
+    line-height:1em;
+    border: none;
+    outline: none;
+    background: none;
+
+    color: #4D95DF;
+    border-radius: 25px;
+    background-color: rgba(255, 255, 255, 0.85);
+    text-transform: uppercase;
+
+    -webkit-transition: background-color 0.3s ease-out;
+    transition: background-color 0.3s ease-out;
+  }
+
+  button:hover {
+    background-color: rgba(255, 255, 255, 1);
+  }
+
+  input[type="text"] {
+    display: inline-block;
+    width: 244px;
+    height: 30px;
+
+    border: none;
+    outline: none;
+    background: none;
+
+    border-bottom: 2px solid rgba(255, 255, 255, 0.7);
+  }
+
+  input[type="checkbox"] {
+    display: inline-block;
+    width: 22px;
+    height: 22px;
+
+    border: none;
+    outline: none;
+    background: none;
+
+    vertical-align: middle;
+    cursor: pointer;
+  }
+
+  label {
+    font-size: 0.8rem;
+  }
+
+  form {
+    margin-top: 25px;
+  }
+
+  a:link {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  a:hover {
+    text-decoration: underline;
+  }
+
+  a:active {
+    color: inherit;
+  }
+
+  a:visited {
+    color: inherit;
+  }
+
+  /**
+   * Masthead
+   */
+  #masthead {
+    padding: 20px 0;
+
+    color: white;
+    border-bottom: 1px solid #4b80b7;
+
+    background: #4c88ef;
+    background: -moz-linear-gradient(-45deg,  #4c88ef 0%, #17e4d9 100%);
+    background: -webkit-gradient(linear, left top, right bottom, color-stop(0%,#4c88ef), color-stop(100%,#17e4d9));
+    background: -webkit-linear-gradient(-45deg,  #4c88ef 0%,#17e4d9 100%);
+    background: -o-linear-gradient(-45deg,  #4c88ef 0%,#17e4d9 100%);
+    background: -ms-linear-gradient(-45deg,  #4c88ef 0%,#17e4d9 100%);
+    background: linear-gradient(135deg,  #4c88ef 0%,#17e4d9 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#4c88ef', endColorstr='#17e4d9',GradientType=1 );
+  }
+
+  #masthead a:link {
+    color: white;
+    font-weight: 500;
+  }
+
+  #masthead #header {
+    position: relative;
+  }
+
+  #masthead #signup {
+    position: relative;
+    margin: 140px 0 170px 0;
+  }
+
+  #masthead #signup #optin {
+    margin-top: 10px;
+  }
+
+  #masthead #signup form.hide {
+    display: none;
+  }
+
+  #masthead #signup #thanks {
+    display: none;
+    margin-top: 82px;
+  }
+
+  #masthead #signup #thanks.show {
+    display: block;
+  }
+
+  #masthead #hero {
+    position: absolute;
+    top: 112px;
+    left: calc(~"100% - 300px");
+    transition: transform 0.7s ease-out;
+  }
+
+  #hero:hover {
+    transform: translateY(-10px);
+  }
+
+  #signup .tooltip.email, #signup .tooltip.optin {
+    position: relative;
+    z-index: 98;
+    width: 230px;
+    left: 0;
+    color: #3f505b;
+    border-radius: 3px;
+    background-color: rgba(255, 255, 255, 0.85);
+    padding: 8px;
+    font-size: .7em;
+    margin-top: 10px;
+    text-align: center;
+    font-weight: 500;
+    display: none;
+  }
+
+  #signup .tooltip.email:before, #signup .tooltip.optin:before {
+    border: solid;
+    border-color: rgba(255, 255, 255, 0.85) transparent;
+    border-width: 0px 6px 6px 6px;
+    content: "";
+    top: -6px;
+    left: 50%;
+    margin-left: -3px;
+    position: absolute;
+    z-index: 99;
+  }
+
+  #signup .tooltip.optin:before {
+    left: 6px;
+  }
+
+  #signup form[data-errors*="email"] .tooltip.email {
+    display: block;
+  }
+
+  #signup form[data-errors*="optin"] .tooltip.optin {
+    display: block;
+  }
+
+  /**
+   * Mid
+   */
+  #mid {
+    padding: 100px 0 100px 0;
+    background-color: white;
+  }
+
+  #mid .inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+  }
+
+  #mid .segment {
+    display: inline-block;
+    width: 296px;
+    height: auto;
+    color: #707c8c;
+  }
+
+  #mid .quote {
+    font-size: 1.3rem;
+  }
+
+  #mid .quote .signature {
+    display: block;
+    font-size: 0.9rem;
+    margin-top: 4px;
+  }
+
+  #mid .feature h4 {
+    color: #3f505b;
+  }
+
+  #mid .feature p {
+    font-size: 1.0rem;
+    line-height: 1.65rem;
+    margin-top: 6px;
+  }
+
+  /**
+   * Footer
+   */
+  #footer {
+    display: block;
+    text-align: center;
+
+    border-top: 1px solid #d7d9de;
+  }
+
+  #footer h2 {
+    margin-top: 30px;
+    color: #36515b;
+  }
+
+  #footer img {
+    margin-top: 30px;
+  }
+
+  #footer ul {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    width: 300px;
+    margin: 30px auto;
+    padding: 0;
+    list-style: none;
+  }
+
+  #footer ul li {
+    display: inline;
+    padding:25px;
+    margin: auto;
+    font-size: 0.9em;
+    color: #aaafbd;
+  }
+
+  /* ----------------------------- */
+
+  /**
+   * Utility
+   */
+  .inner {
+    position: relative;
+    width: 966px;
+    margin: 0 auto;
+  }
+
+  ::-webkit-input-placeholder {
+    color: white;
+    opacity: 0.6;
+  }
+  :-moz-placeholder {
+    color: white;
+    opacity: 0.6;
+  }
+  ::-moz-placeholder {
+    color: white;
+    opacity: 0.6;
+  }
+  :-ms-input-placeholder {
+    color: white;
+    opacity: 0.6;
+  }
+
+  /* ----------------------------- */
+
+  /**
+   * Responsive
+   */
+  @media (max-width: 980px) {
+    h1 { 
+      margin-bottom: .25em;
+    }
+
+    input[type="text"] {
+      font-size: 1rem;
+      width: 200px;
+    }
+
+    button { 
+      height: 40px; width:60px;
+    }
+
+    .inner {
+      width: 600px;
+      margin: 0 auto;
+    }
+
+    #masthead #signup {
+      margin: 60px 0 40px;
+    }
+
+    #masthead #signup #optin {
+      display: flex;
+      width: 260px;
+    }
+
+    #hero { 
+      display: none; 
+    }
+
+    #optin label {
+      margin-left: .5em;
+    }
+
+    #mid {
+      padding: 40px 0;
+    }
+
+    #mid .inner {
+      display: block;
+    }
+
+    #mid .segment {
+      width: 100%;
+      margin-bottom: 2em; 
+    }
+
+  }
+
+  @media (max-width: 768px) {
+    .inner {
+      width: auto;
+      margin: 0 1rem;
+    }
+  } 
+}
