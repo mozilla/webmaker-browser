@@ -22,7 +22,7 @@ module.exports = React.createClass({
         <div id="masthead">
           <div className="inner">
             <div id="header">
-              <img src="./images/logo.svg" width="144" height="40" alt="Webmaker" />
+              <img src="./img/logo.svg" width="144" height="40" alt="Webmaker" />
             </div>
 
             <div id="signup">
@@ -49,7 +49,7 @@ module.exports = React.createClass({
             </div>
 
             <div id="hero">
-              <img src="./images/hero@2x.png" width="260" alt="The Mozilla Webmaker for Android App" />
+              <img src="./img/hero@2x.png" width="260" alt="The Mozilla Webmaker for Android App" />
             </div>
           </div>
         </div>
@@ -75,7 +75,7 @@ module.exports = React.createClass({
         <div id="footer">
           <div className="inner">
             <h2>Share the things you love with your friends.</h2>
-            <img src="./images/mozilla.svg" width="98" height="25" alt="Mozilla" />
+            <img src="./img/mozilla.svg" width="98" height="25" alt="Mozilla" />
             <ul className="links">
               <li><a href="https://webmaker.org/en-US/privacy">Privacy</a></li>
               <li><a href="https://webmaker.org/en-US/terms">Legal</a></li>

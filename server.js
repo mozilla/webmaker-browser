@@ -57,7 +57,7 @@ server.route({
         'css',
         'favicons',
         'fonts',
-        'images',
+        'img',
         'js'
       ]
     }
