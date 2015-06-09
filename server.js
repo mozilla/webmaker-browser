@@ -1,5 +1,6 @@
 var Hapi = require('hapi');
 var Path = require('path');
+var qs = require('querystring');
 
 var bsd = require('./src/util/bsd');
 
@@ -23,6 +24,14 @@ server.route({
   path: '/',
   handler: function (request, reply) {
     reply.file('index.html');
+  }
+});
+
+server.route({
+  method: 'GET',
+  path: '/users/{user}/projects/{project}',
+  handler: function (request, reply) {
+    reply.redirect('webmaker://play?' + qs.stringify(request.params));
   }
 });
 
