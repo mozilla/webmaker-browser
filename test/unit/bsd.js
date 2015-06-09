@@ -1,4 +1,4 @@
-var bsd = require('../../lib/bsd');
+var bsd = require('../../src/util/bsd');
 
 describe('BSD', function(){
   it('should subscribe without an error', function (done) {
