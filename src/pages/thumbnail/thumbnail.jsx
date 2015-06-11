@@ -3,6 +3,7 @@ var nets = require('nets');
 
 var ElementGroup = require('../../components/element-group/element-group.jsx');
 var types = require('../../components/el/el.jsx').types;
+var config = require('../../config');
 
 module.exports = React.createClass({
   getInitialState: function () {
@@ -14,9 +15,9 @@ module.exports = React.createClass({
   componentWillMount: function () {
     var options = {
       method: 'GET',
-      uri: 'https://webmaker-api.herokuapp.com' +
-        '/users/' + this.props.query.user + 
-        '/projects/' + this.props.query.project + 
+      uri: config.API_URI +
+        '/users/' + this.props.query.user +
+        '/projects/' + this.props.query.project +
         '/pages/' + this.props.query.page,
       json: {}
     };

@@ -3,15 +3,20 @@
   "version": "1.0.0",
   "description": "",
   "scripts": {
-    "start": "npm run build && node server.js",
+    "start": "npm run build && npm run server",
+    "dev": "npm-run-all --parallel server watch:**",
+    "config": "node ./build-config.js > src/config.js",
     "build": "npm-run-all build:**",
     "build:clean": "rimraf ./build && mkdirp ./build",
-    "build:static": "ncp ./static ./build",    
-    "build:css": "autoless --no-watch --autoprefix \"> 5%, last 2 versions, android >= 4.0\" ./src ./build/css",
-    "build:js": "webpack",
+    "build:static": "ncp ./static ./build",
+    "build:css": "npm run watch:css -- --no-watch",
+    "build:js": "npm run config && webpack",
+    "watch:js": "npm run build:js --watch",
+    "watch:css": "autoless --autoprefix \"> 5%, last 2 versions, android >= 4.0\" ./src ./build/css",
     "test": "npm-run-all test:**",
     "test:lint": "jsxhint --harmony --config ./node_modules/mofo-style/linters/.jshintrc \"./src/{**,.}/*.{js,jsx}\"",
-    "test:unit": "mocha -R spec ./test/unit/*.js"
+    "test:unit": "mocha -R spec ./test/unit/*.js",
+    "server": "node server.js"
   },
   "repository": {
     "type": "git",
@@ -34,6 +39,7 @@
     "babel-core": "~5.4.7",
     "babel-loader": "~5.1.3",
     "expect.js": "~0.3.1",
+    "habitat": "~3.1.2",
     "json-loader": "~0.5.2",
     "jsx-loader": "~0.13.2",
     "jsxhint": "~0.15.1",
