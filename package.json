@@ -8,7 +8,7 @@
     "build": "npm-run-all build:**",
     "build:clean": "rimraf ./build && mkdirp ./build",
     "build:static": "ncp ./static ./build",
-    "build:css": "autoless --no-watch --autoprefix \"> 5%, last 2 versions, android >= 4.0\" ./src ./build/css",
+    "build:css": "npm run watch:css -- --no-watch",
     "build:js": "webpack",
     "watch:js": "webpack --watch",
     "watch:css": "autoless --autoprefix \"> 5%, last 2 versions, android >= 4.0\" ./src ./build/css",
