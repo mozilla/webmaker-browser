@@ -5,7 +5,7 @@ node_js:
 env:
   matrix:
   - NODE_ENV=STAGING
-  - NODE_ENV=MOFODEV
+  - NODE_ENV=PRODUCTION
 sudo: false
 cache:
   directories:
@@ -20,7 +20,7 @@ deploy:
       repo: mozilla/webmaker-desktop
   - provider: heroku
     api_key:
-      secure: GmD/yKTWQERLkqL5gGOmZlSchgNkwqp+AgnLPuhTUVle62+IbBSZrkeTKN6jfpdvCHM38ZR7p8iFddZmYXDCt/lhnkAGXcjbYC9FTjRggnBC3hccIzjL+nlochqCfBTzB39crgnm1znUQoznYOs7eQxLLlTFZVheJEBCLRlXx1k=
+      secure: kPmdL7/P08RI41kN5YKJ3T+GT+eDzef3ZiC4TUE4QI1RSIv9103RRvlaYxdlDk2hgLyeBoX1a5v/jgowMTjhYFRgcbuXiCzlH9xu0mTbFEmO6hQw8L6Alhi+/ocxvl7cWD4kpCtpey497dT9ZbGYk/Fze+VcKVSXiaUvOWKFqQ0=
     app:
       master: webmaker-desktop-production
     on:
