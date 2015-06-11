@@ -3,15 +3,19 @@
   "version": "1.0.0",
   "description": "",
   "scripts": {
-    "start": "npm run build && node server.js",
+    "start": "npm run build && npm run server",
+    "dev": "npm-run-all --parallel server watch:**",
     "build": "npm-run-all build:**",
     "build:clean": "rimraf ./build && mkdirp ./build",
-    "build:static": "ncp ./static ./build",    
+    "build:static": "ncp ./static ./build",
     "build:css": "autoless --no-watch --autoprefix \"> 5%, last 2 versions, android >= 4.0\" ./src ./build/css",
     "build:js": "webpack",
+    "watch:js": "webpack --watch",
+    "watch:css": "autoless --autoprefix \"> 5%, last 2 versions, android >= 4.0\" ./src ./build/css",
     "test": "npm-run-all test:**",
     "test:lint": "jsxhint --harmony --config ./node_modules/mofo-style/linters/.jshintrc \"./src/{**,.}/*.{js,jsx}\"",
-    "test:unit": "mocha -R spec ./test/unit/*.js"
+    "test:unit": "mocha -R spec ./test/unit/*.js",
+    "server": "node server.js"
   },
   "repository": {
     "type": "git",
