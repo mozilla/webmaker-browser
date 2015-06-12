@@ -22,7 +22,7 @@ module.exports = React.createClass({
         <div id="masthead">
           <div className="inner">
             <div id="header">
-              <img src="./img/logo.svg" width="144" height="40" alt="Webmaker" />
+              <img src="./img/logo.png" width="200" height="53" alt="Webmaker" />
             </div>
 
             <div id="signup">
