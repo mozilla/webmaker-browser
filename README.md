@@ -1,5 +1,5 @@
 ## Webmaker for Desktop
-
+ 
 [![Build Status](https://travis-ci.org/mozilla/webmaker-desktop.svg)](https://travis-ci.org/mozilla/webmaker-desktop)
 
 Mozilla Webmaker's mission is to help enable a new generation of digital creators and webmakers, giving people the tools and skills they need to move from using the Web to actively making the Web.
