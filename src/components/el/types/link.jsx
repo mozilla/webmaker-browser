@@ -1,14 +1,29 @@
 var React = require('react');
 var assign = require('react/lib/Object.assign');
-
 var getContrastingColor = require('../../../util/color').getContrastingColor;
 var Spec = require('../../../util/spec');
+// var dispatcher = require('../../../lib/dispatcher');
 
 var spec = new Spec('link', assign({
   innerHTML: {
     category: 'attributes',
     validation: React.PropTypes.string,
-    default: 'Tap me'
+    default: 'Button link'
+  },
+  targetPageId: {
+    category: 'attributes',
+    validation: React.PropTypes.string,
+    default: ''
+  },
+  targetProjectId: {
+    category: 'attributes',
+    validation: React.PropTypes.string,
+    default: ''
+  },
+  targetUserId: {
+    category: 'attributes',
+    validation: React.PropTypes.string,
+    default: ''
   },
   href: {
     category: 'attributes',
@@ -23,12 +38,13 @@ var spec = new Spec('link', assign({
   backgroundColor: {
     category: 'styles',
     validation: React.PropTypes.string,
-    default: '#69A0FC'
+    default: '#69A0FC',
+    editor: 'color'
   },
   borderRadius: {
     category: 'styles',
     validation: React.PropTypes.number,
-    default: 5
+    default: 3
   }
 }, Spec.getPositionProps()));
 
@@ -48,6 +64,14 @@ var Link = React.createClass({
     });
   },
 
+  onClick: function () {
+    if (this.state.editing) {
+      this.activate();
+    } else {
+      // dispatcher.fire('linkClicked', this.props);
+    }
+  },
+
   render: function() {
     var props = this.props;
 
@@ -62,12 +86,8 @@ var Link = React.createClass({
 
     var Element = this.props.activelink ? 'a' : 'span';
     var content = this.makeEditable(props.innerHTML, style);
-    var onPClick = this.activate;
-    if (this.state.editing) {
-      onPClick = false;
-    }
 
-    return <Element className="btn" style={style} onClick={onPClick} href={props.href}>{content}</Element>;
+    return <Element className="btn" style={style} onClick={this.onClick} href={props.href}>{content}</Element>;
   }
 });
 
