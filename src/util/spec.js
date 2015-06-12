@@ -2,7 +2,7 @@ var React = require('react/addons');
 
 function getValidationErrors(spec) {
   var result = null;
-  var VALID_KEYS = ['category', 'default', 'validation'];
+  var VALID_KEYS = ['category', 'default', 'validation', 'editor'];
   var VALID_CATEGORIES = ['styles', 'attributes'];
 
   var keys = Object.keys(spec);
@@ -79,11 +79,6 @@ Spec.propsToPosition = function (props) {
       `rotate(${props.angle * 180/Math.PI}deg)`,
       `scale(${props.scale})`
     ].join(' '),
-    '-webkit-transform': [
-      `translate(${props.x}px, ${props.y}px)`,
-      `rotate(${props.angle * 180/Math.PI}deg)`,
-      `scale(${props.scale})`
-    ].join(' '),
     transformOrigin: 'center',
     zIndex: props.zIndex
   };
@@ -93,7 +88,9 @@ Spec.prototype.getDefaultProps = function () {
   var props = this.spec;
   var result = {};
   Object.keys(props).forEach(prop => {
-    if (typeof props[prop].default !== 'undefined') {
+    if (typeof props[prop].default === 'function') {
+      result[prop] = props[prop].default();
+    } else if (typeof props[prop].default !== 'undefined') {
       result[prop] = props[prop].default;
     }
   });
@@ -116,6 +113,8 @@ Spec.prototype.flatten = function (props, options) {
   props = props || {};
   var element = JSON.parse(JSON.stringify(props));
 
+  var defaults = this.getDefaultProps();
+
   Object.keys(this.spec).forEach(key => {
     var category = this.spec[key].category;
     if (!element[category]) {
@@ -125,8 +124,8 @@ Spec.prototype.flatten = function (props, options) {
     if (typeof element[category][key] !== 'undefined') {
       element[key] = element[category][key];
     } else if (options.defaults) {
-      if (typeof this.spec[key].default !== 'undefined') {
-        element[key] = this.spec[key].default;
+      if (typeof defaults[key] !== 'undefined') {
+        element[key] = defaults[key];
       }
     }
   });
@@ -142,6 +141,8 @@ Spec.prototype.expand = function (props, options) {
   props = props || {};
   var element = JSON.parse(JSON.stringify(props));
 
+  var defaults = this.getDefaultProps();
+
   Object.keys(this.spec).forEach(key => {
     var category = this.spec[key].category;
     if (!element[category]) {
@@ -152,8 +153,8 @@ Spec.prototype.expand = function (props, options) {
       element[category][key] = element[key];
       delete element[key];
     } else if (options.defaults) {
-      if (typeof this.spec[key].default !== 'undefined') {
-        element[category][key] = this.spec[key].default;
+      if (typeof defaults[key] !== 'undefined') {
+        element[category][key] = defaults[key];
       }
     }
   });
@@ -166,6 +167,16 @@ Spec.prototype.generate = function (props) {
   props.type = this.type;
   var result = this.expand(props || {}, {defaults: true});
   return result;
+};
+
+Spec.prototype.isStyleOrAttribute = function (name) {
+  var category;
+  Object.keys(this.spec).forEach((key) => {
+    if (key === name) {
+      category = this.spec[key].category;
+    }
+  });
+  return category;
 };
 
 module.exports = Spec;
