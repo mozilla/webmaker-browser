@@ -80,7 +80,7 @@ var Link = React.createClass({
       borderRadius: props.borderRadius,
       backgroundColor: props.backgroundColor,
       color: getContrastingColor(props.backgroundColor),
-      fontFamily: props.fontFamily,
+      fontFamily: props.fontFamily += ', sans-serif',
       whiteSpace: props.whiteSpace
     };
 
