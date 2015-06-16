@@ -2,6 +2,8 @@ var React = require('react');
 var Router = require('react-router');
 
 var Splash = require('./pages/splash/splash.jsx');
+var TOS = require('./pages/legal/tos.jsx');
+var Privacy = require('./pages/legal/privacy.jsx');
 var Thumbnail = require('./pages/thumbnail/thumbnail.jsx');
 
 var Route = Router.Route;
@@ -24,6 +26,8 @@ var App = React.createClass({
 var Routes = (
   <Route path="/" handler={App}>
     <Route path="/thumbnail" handler={Thumbnail} />
+    <Route path="/legal" handler={TOS} />
+    <Route path="/privacy" handler={Privacy} />
     <NotFoundRoute handler={Splash} />
     <DefaultRoute handler={Splash} />
   </Route>
