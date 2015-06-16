@@ -11,7 +11,7 @@
     "build:static": "ncp ./static ./build",
     "build:css": "npm run watch:css -- --no-watch",
     "build:js": "npm run config && webpack",
-    "watch:js": "npm run build:js --watch",
+    "watch:js": "npm run build:js -- --watch",
     "watch:css": "autoless --autoprefix \"> 5%, last 2 versions, android >= 4.0\" ./src ./build/css",
     "test": "npm-run-all test:**",
     "test:lint": "jsxhint --harmony --config ./node_modules/mofo-style/linters/.jshintrc \"./src/{**,.}/*.{js,jsx}\"",
