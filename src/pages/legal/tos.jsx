@@ -18,7 +18,7 @@ module.exports = React.createClass({
 
         <div id="mid">
           <div className="inner legal">
-            <h1>Webmaker & teach.mozilla.org Terms of Use</h1>
+            <h1>Webmaker and teach.mozilla.org Terms of Use</h1>
 
             <h3>June 15, 2013</h3>
 

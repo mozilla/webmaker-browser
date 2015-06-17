@@ -20,7 +20,7 @@ module.exports = React.createClass({
           <div className="inner legal">
             <h1>Webmaker Privacy</h1>
             <h3>Updated on: June 15, 2013</h3>
-            <p>We care about your privacy. When Mozilla (that’s us) collects information
+            <p>We care about your privacy. When Mozilla (that's us) collects information
               about you from Webmaker, our privacy policy describes how we handle that information.</p>
 
             <h2>Things you should know</h2>
