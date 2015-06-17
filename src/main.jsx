@@ -5,6 +5,7 @@ var Splash = require('./pages/splash/splash.jsx');
 var TOS = require('./pages/legal/tos.jsx');
 var Privacy = require('./pages/legal/privacy.jsx');
 var Thumbnail = require('./pages/thumbnail/thumbnail.jsx');
+var ErrorView = require('./pages/error/error.jsx');
 
 var Route = Router.Route;
 var NotFoundRoute = Router.NotFoundRoute;
@@ -28,7 +29,7 @@ var Routes = (
     <Route path="/thumbnail" handler={Thumbnail} />
     <Route path="/legal" handler={TOS} />
     <Route path="/privacy" handler={Privacy} />
-    <NotFoundRoute handler={Splash} />
+    <NotFoundRoute handler={ErrorView} />
     <DefaultRoute handler={Splash} />
   </Route>
 );
