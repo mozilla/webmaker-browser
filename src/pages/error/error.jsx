@@ -1,5 +1,6 @@
 var React = require('react/addons');
 var Footer = require('../../components/footer/footer.jsx');
+var Masthead = require('../../components/masthead/masthead.jsx');
 
 module.exports = React.createClass({
   mixins: [
@@ -8,13 +9,7 @@ module.exports = React.createClass({
   render: function () {
     return (
       <div id="splash" className="error">
-        <div id="masthead">
-          <div className="inner">
-            <div id="header">
-              <a href="#/"><img src="./img/logo.png" width="200" height="53" alt="Webmaker" /></a>
-            </div>
-          </div>
-        </div>
+        <Masthead/>
 
         <div id="mid">
           <div className="inner legal centered">
