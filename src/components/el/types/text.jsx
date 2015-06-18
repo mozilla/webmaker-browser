@@ -79,6 +79,8 @@ module.exports = React.createClass({
       style[prop] = props[prop];
     });
 
+    style.fontFamily += ', sans-serif';
+
     var content = this.makeEditable(props.innerHTML, style);
     var onPClick = this.activate;
     if (this.state.editing) {
