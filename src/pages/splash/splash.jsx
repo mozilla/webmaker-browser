@@ -1,6 +1,4 @@
 var React = require('react/addons');
-var nets = require('nets');
-var validator = require('email-validator');
 var Footer = require('../../components/footer/footer.jsx');
 var Masthead = require('../../components/masthead/masthead.jsx');
 
