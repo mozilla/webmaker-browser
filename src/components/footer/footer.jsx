@@ -12,7 +12,7 @@ module.exports = React.createClass({
             <li><a href="#/privacy">Privacy</a></li>
             <li><a target="_blank" href="https://sendto.mozilla.org/page/contribute/join-mozilla?source=join_link">Donate</a></li>
             <li><a href="mailto:help@webmaker.org">Contact</a></li>
-            <li><img src="./img/twitter.svg" className="icon"/><a target="_blank" href="https://twitter.com/Webmaker">Twitter</a></li>
+            <li><a target="_blank" href="https://twitter.com/Webmaker">Twitter</a></li>
           </ul>
         </div>
       </div>
