@@ -38,5 +38,11 @@ var Routes = (
  * Start router
  */
 Router.run(Routes, Router.HashLocation, (Root) => {
-  React.render(<Root />, document.body);
+  React.render(<Root />, document.body, function () {
+    // After the content is rendered we need to manually activate
+    // any Optimizely experiment running on this site
+    // https://help.optimizely.com/hc/en-us/articles/200040225#conditional
+    window.optimizely = window.optimizely || [];
+    window.optimizely.push(["activate"]);
+  });
 });
