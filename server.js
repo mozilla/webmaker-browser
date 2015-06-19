@@ -1,6 +1,7 @@
 var Hapi = require('hapi');
 var Path = require('path');
 var qs = require('querystring');
+var bunyan = require('bunyan');
 
 var bsd = require('./src/util/bsd');
 
@@ -16,6 +17,21 @@ var server = new Hapi.Server({
 
 server.connection({
   port: process.env.PORT || 8000
+});
+
+// Bunyan Logging
+server.register({
+  register: require('hapi-bunyan'),
+  options: {
+    logger: bunyan.createLogger({
+      name: 'webmaker-desktop',
+      level: process.env.LOG_LEVEL || 'debug'
+    })
+  }
+}, function(err) {
+  if ( err ) {
+    throw err;
+  }
 });
 
 // Route handlers
