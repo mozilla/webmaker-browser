@@ -71,7 +71,7 @@ module.exports = React.createClass({
     });
   },
   render: function () {
-    var link = 'intent://play?user=' + this.props.query.user + '&project=' + this.props.query.project + '#Intent;scheme=webmaker;package=org.mozilla.webmaker;S.browser_fallback_url=https%3A%2F%2Fplay.google.com%2Fstore%2Fapps%2Fdetails%3Fid%3Dorg.mozilla.webmaker;end';
+    var link = 'webmaker://play?user=' + this.props.query.user + '&project=' + this.props.query.project + '#Intent;scheme=webmaker;package=org.mozilla.webmaker;S.browser_fallback_url=https%3A%2F%2Fplay.google.com%2Fstore%2Fapps%2Fdetails%3Fid%3Dorg.mozilla.webmaker;end';
     return (
       <div id="project">
         <div hidden={!this.state.error}>Sorry, this project does not seem to exist!</div>
