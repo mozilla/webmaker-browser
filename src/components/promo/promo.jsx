@@ -7,7 +7,7 @@ module.exports = React.createClass({
     head: React.PropTypes.string.isRequired,
     subhead: React.PropTypes.string.isRequired,
     ctaText: React.PropTypes.string.isRequired,
-    ctaLink: React.PropTypes.string.isRequired,
+    ctaLink: React.PropTypes.string.isRequired
   },
   handleBtnClick: function () {
     window.location.href = this.props.ctaLink;
