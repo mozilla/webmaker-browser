@@ -1,6 +1,6 @@
-## Webmaker for Desktop
+## Webmaker for Browser
  
-[![Build Status](https://travis-ci.org/mozilla/webmaker-desktop.svg)](https://travis-ci.org/mozilla/webmaker-desktop)
+[![Build Status](https://travis-ci.org/mozilla/webmaker-browser.svg)](https://travis-ci.org/mozilla/webmaker-browser)
 
 Mozilla Webmaker's mission is to help enable a new generation of digital creators and webmakers, giving people the tools and skills they need to move from using the Web to actively making the Web.
 
@@ -14,8 +14,8 @@ Before you jump into the code you'll want to download, install, and configure th
 
 #### Clone & Install Dependencies
 ```bash
-git clone https://github.com/mozilla/webmaker-desktop
-cd webmaker-desktop
+git clone https://github.com/mozilla/webmaker-browser
+cd webmaker-browser
 npm install
 ```
 
