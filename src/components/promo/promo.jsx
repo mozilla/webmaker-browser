@@ -9,9 +9,6 @@ module.exports = React.createClass({
     ctaText: React.PropTypes.string.isRequired,
     ctaLink: React.PropTypes.string.isRequired
   },
-  handleBtnClick: function () {
-    window.location.href = this.props.ctaLink;
-  },
   render: function () {
     return (
       <div className="promo">
@@ -21,7 +18,7 @@ module.exports = React.createClass({
                width="100" />
           <h3>{this.props.head}</h3>
           <h4>{this.props.subhead}</h4>
-          <button onClick={this.handleBtnClick}>{this.props.ctaText}</button>
+          <a href={this.props.ctaLink} className="btn">{this.props.ctaText}</a>
         </div>
       </div>
     );
