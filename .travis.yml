@@ -14,4 +14,4 @@ deploy:
     master: webmaker-desktop-production
     develop: webmaker-desktop-staging
   on:
-    repo: mozilla/webmaker-desktop
+    repo: mozilla/webmaker-browser
