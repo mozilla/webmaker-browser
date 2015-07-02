@@ -1,4 +1,5 @@
 var React = require('react/addons');
+var MakerPartyPromo = require('../../components/promo/promo.jsx');
 var Footer = require('../../components/footer/footer.jsx');
 var Masthead = require('../../components/masthead/masthead.jsx');
 
@@ -39,6 +40,17 @@ module.exports = React.createClass({
               <p>Mozilla is a non-profit organization and these open-source tools are created by a global community. They will always be 100% free — now and forever!</p>
             </div>
           </div>
+        </div>
+
+        <div id="mp-promo">
+          <MakerPartyPromo
+            logoAlt="Maker Party Promo"
+            logoSrc="./img/maker-party@2x.png"
+            head="Host a Maker Party"
+            subhead="Maker Party is Mozilla's global campaign to teach the Web. Join us between July 15 and 31."
+            ctaText="Get started"
+            ctaLink="https://teach.mozilla.org/events/"
+          />
         </div>
 
         <Footer/>
