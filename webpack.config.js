@@ -15,12 +15,12 @@ module.exports = {
       {
         test: /\.js$/,
         loaders: ['babel-loader'],
-        include: path.resolve(__dirname, 'src')
+        include: [path.resolve(__dirname, 'node_modules/webmaker-core/src'), path.resolve(__dirname, 'src')]
       },
       {
         test: /\.jsx$/,
         loaders: ['babel-loader', 'jsx-loader'],
-        include: path.resolve(__dirname, 'src')
+        include: [path.resolve(__dirname, 'node_modules/webmaker-core/src'), path.resolve(__dirname, 'src')]
       },
       {
         test: /\.json$/,
