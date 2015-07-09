@@ -1,9 +1,5 @@
-// var React = require('react/addons');
 var React = require('react');
-
 var {parseJSON} = require('../../../node_modules/webmaker-core/src/lib/jsonUtils');
-var render = require('../../../node_modules/webmaker-core/src/lib/render.jsx');
-
 var Loading = require('../../../node_modules/webmaker-core/src/components/loading/loading.jsx');
 var {Menu, PrimaryButton, FullWidthButton} = require('../../../node_modules/webmaker-core/src/components/action-menu/action-menu.jsx');
 var PageBlock = require("../../../node_modules/webmaker-core/src/pages/project/pageblock.jsx");
