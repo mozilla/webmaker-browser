@@ -1,6 +1,5 @@
 var React = require('react');
 var {parseJSON} = require('webmaker-core/src/lib/jsonUtils');
-var Loading = require('webmaker-core/src/components/loading/loading.jsx');
 var {Menu, PrimaryButton, FullWidthButton} = require('../../../node_modules/webmaker-core/src/components/action-menu/action-menu.jsx');
 var PageBlock = require("webmaker-core/src/pages/project/pageblock.jsx");
 
@@ -78,6 +77,7 @@ module.exports = React.createClass({
     //
     // Prevent pull to refresh
     // FIXME: TODO: This should be done by preventDefaulting the touch event, not via CSS.
+    // FIXME: TODO: Add <Loading /> component after localization is initialized
     document.body.style.overflowY = 'hidden';
     var mode = this.state.params.mode;
     var isPlayOnly = (mode === 'play' || mode === 'link');
@@ -96,7 +96,6 @@ module.exports = React.createClass({
           <FullWidthButton onClick={this.setDestination} off={this.state.params.mode !== 'link' || !this.state.selectedEl}>Set Destination</FullWidthButton>
         </Menu>
 
-       
       </div>
     );
   }
