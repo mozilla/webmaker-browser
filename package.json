@@ -10,7 +10,7 @@
     "build:clean": "rimraf ./build && mkdirp ./build",
     "build:static": "ncp ./static ./build",
     "build:css": "npm run watch:css -- --no-watch",
-    "build:js": "npm run build:core && npm run config && webpack",
+    "build:js": "npm run build:core && npm run config && webpack -d",
     "build:core": "npm explore webmaker-core -- npm install && node npm_tasks/copy-env.js && npm explore webmaker-core -- npm run build",
     "watch:js": "npm run build:js -- --watch",
     "watch:css": "autoless --autoprefix \"> 5%, last 2 versions, android >= 4.0\" ./src ./build/css",

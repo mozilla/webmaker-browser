@@ -1,19 +1,18 @@
 var React = require('react');
-var {parseJSON} = require('../../../node_modules/webmaker-core/src/lib/jsonUtils');
-var Loading = require('../../../node_modules/webmaker-core/src/components/loading/loading.jsx');
+var {parseJSON} = require('webmaker-core/src/lib/jsonUtils');
 var {Menu, PrimaryButton, FullWidthButton} = require('../../../node_modules/webmaker-core/src/components/action-menu/action-menu.jsx');
-var PageBlock = require("../../../node_modules/webmaker-core/src/pages/project/pageblock.jsx");
+var PageBlock = require("webmaker-core/src/pages/project/pageblock.jsx");
 
 module.exports = React.createClass({
   mixins: [
-    require('../../../node_modules/webmaker-core/src/lib/router'),
-    require('../../../node_modules/webmaker-core/src/pages/project/transforms'),
-    require('../../../node_modules/webmaker-core/src/pages/project/remix'),
-    require('../../../node_modules/webmaker-core/src/pages/project/cartzoom'),
-    require('../../../node_modules/webmaker-core/src/pages/project/pageadmin'),
-    require('../../../node_modules/webmaker-core/src/pages/project/loader'),
-    require('../../../node_modules/webmaker-core/src/pages/project/setdestination'),
-    require('../../../node_modules/webmaker-core/src/pages/project/renderhelpers')
+    require('webmaker-core/src/lib/router'),
+    require('webmaker-core/src/pages/project/transforms'),
+    require('webmaker-core/src/pages/project/remix'),
+    require('webmaker-core/src/pages/project/cartzoom'),
+    require('webmaker-core/src/pages/project/pageadmin'),
+    require('webmaker-core/src/pages/project/loader'),
+    require('webmaker-core/src/pages/project/setdestination'),
+    require('webmaker-core/src/pages/project/renderhelpers')
   ],
 
   getInitialState: function () {
@@ -78,6 +77,7 @@ module.exports = React.createClass({
     //
     // Prevent pull to refresh
     // FIXME: TODO: This should be done by preventDefaulting the touch event, not via CSS.
+    // FIXME: TODO: Add <Loading /> component after localization is initialized
     document.body.style.overflowY = 'hidden';
     var mode = this.state.params.mode;
     var isPlayOnly = (mode === 'play' || mode === 'link');
@@ -96,7 +96,6 @@ module.exports = React.createClass({
           <FullWidthButton onClick={this.setDestination} off={this.state.params.mode !== 'link' || !this.state.selectedEl}>Set Destination</FullWidthButton>
         </Menu>
 
-        <Loading on={this.state.loading} />
       </div>
     );
   }

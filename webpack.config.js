@@ -10,22 +10,33 @@ module.exports = {
     'react': 'React',
     'react/addons': 'React'
   },
+  fallback: path.join(__dirname, "node_modules"),
   module: {
     loaders: [
       {
         test: /\.js$/,
         loaders: ['babel-loader'],
-        include: [path.resolve(__dirname, 'node_modules/webmaker-core/src'), path.resolve(__dirname, 'src')]
+        include: [
+          /\/webmaker-core\//,
+          path.resolve(__dirname, 'src')
+        ]
       },
       {
         test: /\.jsx$/,
         loaders: ['babel-loader', 'jsx-loader'],
-        include: [path.resolve(__dirname, 'node_modules/webmaker-core/src'), path.resolve(__dirname, 'src')]
+        include: [
+          /\/webmaker-core\//,
+          path.resolve(__dirname, 'src')
+        ]
       },
       {
         test: /\.json$/,
         loaders: ['json-loader'],
-        include: [path.resolve(__dirname, 'www_src'),  path.resolve(__dirname, 'node_modules')]
+        include: [
+          /\/webmaker-core\//,
+          path.resolve(__dirname, 'www_src'),
+          path.resolve(__dirname, 'node_modules')
+        ]
       }
     ]
   }
