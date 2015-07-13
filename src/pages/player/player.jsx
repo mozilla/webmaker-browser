@@ -82,20 +82,24 @@ module.exports = React.createClass({
     var mode = this.state.params.mode;
     var isPlayOnly = (mode === 'play' || mode === 'link');
     return (
-      <div id="map" className={this.state.params.mode}>
-        <div ref="bounding" className="bounding" style={ this.getBoundingStyle() }>
-          <div className="test-container" style={ this.getContainerStyle() }>
-          { this.formPages() }
-          { this.generateAddContainers(isPlayOnly) }
+      <div id="player-body">
+        <header>
+          <h1>PROJECT_NAME by AUTHOR</h1>
+        </header>
+        <div id="map" className={this.state.params.mode}>
+          <div ref="bounding" className="bounding" style={ this.getBoundingStyle() }>
+            <div className="test-container" style={ this.getContainerStyle() }>
+            { this.formPages() }
+            { this.generateAddContainers(isPlayOnly) }
+            </div>
           </div>
+
+          <Menu fullWidth={this.state.params.mode === 'link'}>
+            { this.getRemovePageButton(isPlayOnly) }
+            <PrimaryButton onClick={this.zoomFromPage} off={!this.state.isPageZoomed} icon="../../img/zoom-out.svg" />
+            <FullWidthButton onClick={this.setDestination} off={this.state.params.mode !== 'link' || !this.state.selectedEl}>Set Destination</FullWidthButton>
+          </Menu>
         </div>
-
-        <Menu fullWidth={this.state.params.mode === 'link'}>
-          { this.getRemovePageButton(isPlayOnly) }
-          <PrimaryButton onClick={this.zoomFromPage} off={!this.state.isPageZoomed} icon="../../img/zoom-out.svg" />
-          <FullWidthButton onClick={this.setDestination} off={this.state.params.mode !== 'link' || !this.state.selectedEl}>Set Destination</FullWidthButton>
-        </Menu>
-
       </div>
     );
   }
