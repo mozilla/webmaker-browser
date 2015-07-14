@@ -5,7 +5,6 @@ var PageBlock = require("webmaker-core/src/pages/project/pageblock.jsx");
 
 module.exports = React.createClass({
   mixins: [
-    require('webmaker-core/src/lib/router'),
     require('webmaker-core/src/pages/project/transforms'),
     require('webmaker-core/src/pages/project/remix'),
     require('webmaker-core/src/pages/project/cartzoom'),
@@ -22,7 +21,11 @@ module.exports = React.createClass({
       pages: [],
       camera: {},
       zoom: this.DEFAULT_ZOOM,
-      isPageZoomed: false
+      isPageZoomed: false,
+      params: {
+        user: this.props.query.user,
+        project: this.props.query.project
+      }
     };
   },
 
