@@ -1,8 +1,9 @@
 var React = require('react');
 var nets = require('nets');
 
-var ElementGroup = require('../../components/element-group/element-group.jsx');
-var types = require('../../components/el/el.jsx').types;
+var ElementGroup = require('../../../node_modules/webmaker-core/src/components/element-group/element-group.jsx');
+var types = require('../../../node_modules/webmaker-core/src/components/basic-element/basic-element.jsx').types;
+
 var config = require('../../config');
 
 module.exports = React.createClass({

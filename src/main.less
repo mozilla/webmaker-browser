@@ -3,14 +3,43 @@
 /**
  * Components
  */
-@import "components/button/button";
-@import "components/el/el";
-@import "components/element-group/element-group";
+
+// webmaker-core extras
+@import "../node_modules/webmaker-core/src/variables";
+@import "../node_modules/webmaker-core/src/colors";
+
+// webmaker-core components
+@import "../node_modules/webmaker-core/src/components/action-menu/action-menu";
+@import "../node_modules/webmaker-core/src/components/alert/alert";
+@import "../node_modules/webmaker-core/src/components/basic-element/basic-element";
+@import "../node_modules/webmaker-core/src/components/button/button";
+@import "../node_modules/webmaker-core/src/components/card/card";
+@import "../node_modules/webmaker-core/src/components/color-group/color-group";
+@import "../node_modules/webmaker-core/src/components/color-spectrum/color-spectrum";
+@import "../node_modules/webmaker-core/src/components/element-group/element-group";
+@import "../node_modules/webmaker-core/src/components/link/link";
+@import "../node_modules/webmaker-core/src/components/loading/loading";
+@import "../node_modules/webmaker-core/src/components/modal-confirm/modal-confirm";
+@import "../node_modules/webmaker-core/src/components/modal-switch/modal-switch";
+@import "../node_modules/webmaker-core/src/components/option-panel/option-panel";
+@import "../node_modules/webmaker-core/src/components/range/range";
+@import "../node_modules/webmaker-core/src/components/select/select";
+@import "../node_modules/webmaker-core/src/components/shim/shim";
+@import "../node_modules/webmaker-core/src/components/snackbar/snackbar";
+@import "../node_modules/webmaker-core/src/components/spindicator/spindicator";
+@import "../node_modules/webmaker-core/src/components/tabs/tabs";
+@import "../node_modules/webmaker-core/src/components/text-input/text-input";
+
+// webmaker-core pages
+@import "../node_modules/webmaker-core/src/pages/project/project";
+
+// webmaker-browser specific components
 @import "components/promo/promo";
 
 /**
  * Pages
  */
+@import "pages/player/player";
 @import "pages/splash/splash";
 @import "pages/thumbnail/thumbnail";
 @import "pages/project/project";
@@ -49,4 +78,15 @@ body {
 
 .centered {
   text-align: center;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  border: 0;
 }

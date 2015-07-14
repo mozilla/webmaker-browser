@@ -49,7 +49,7 @@ module.exports = React.createClass({
             head="Host a Maker Party"
             subhead="Maker Party is Mozilla's global campaign to teach the Web. Join us between July 15 and 31."
             ctaText="Get started"
-            ctaLink="https://teach.mozilla.org/events/"
+            ctaLink="https://teach.mozilla.org/events/?ref=beta.webmaker.org"
           />
         </div>
 

@@ -3,3 +3,4 @@
 npm-**
 /build
 src/config.js
+.env
