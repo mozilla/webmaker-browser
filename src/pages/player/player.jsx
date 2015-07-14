@@ -2,6 +2,8 @@ var React = require('react');
 var {parseJSON} = require('webmaker-core/src/lib/jsonUtils');
 var {Menu, PrimaryButton, FullWidthButton} = require('../../../node_modules/webmaker-core/src/components/action-menu/action-menu.jsx');
 var PageBlock = require("webmaker-core/src/pages/project/pageblock.jsx");
+var nets = require('nets');
+var config = require('../../config');
 
 module.exports = React.createClass({
   mixins: [
@@ -24,14 +26,39 @@ module.exports = React.createClass({
       isPageZoomed: false,
       params: {
         user: this.props.query.user,
-        project: this.props.query.project
-      }
+        project: this.props.query.project,
+        mode: 'play'
+      },
+      projectName: 'Untitled',
+      projectAuthor: 'Anonymous'
     };
   },
 
   componentWillMount: function () {
     this.load();
+
+    // Add CSS hook
     document.querySelector('html').setAttribute('id', 'project-player');
+
+    // Retrieve project metadata: project name & author
+    var options = {
+      method: 'GET',
+      uri: config.API_URI +
+        '/users/' + this.props.query.user +
+        '/projects/' + this.props.query.project,
+      json: {}
+    };
+
+    nets(options, (err, res, body) => {
+      if (err || res.statusCode !== 200) {
+        return console.error('Could not fetch the page');
+      }
+
+      this.setState({
+        projectAuthor: body.project.author.username,
+        projectName: body.project.title
+      });
+    });
   },
 
   componentDidUpdate: function (prevProps) {
@@ -88,9 +115,9 @@ module.exports = React.createClass({
       <div id="player-body">
         <header>
           <img src="/img/newlogo.png"/>
-          <h1>PROJECT_NAME by AUTHOR</h1>
+          <h1>{ this.state.projectName } by { this.state.projectAuthor }</h1>
         </header>
-        <div id="map" className={this.state.params.mode}>
+        <div id="map" className={ mode }>
           <div ref="bounding" className="bounding" style={ this.getBoundingStyle() }>
             <div className="test-container" style={ this.getContainerStyle() }>
             { this.formPages() }
@@ -98,10 +125,10 @@ module.exports = React.createClass({
             </div>
           </div>
 
-          <Menu fullWidth={this.state.params.mode === 'link'}>
+          <Menu fullWidth={ mode === 'link' }>
             { this.getRemovePageButton(isPlayOnly) }
             <PrimaryButton onClick={this.zoomFromPage} off={!this.state.isPageZoomed} icon="../../img/zoom-out.svg" />
-            <FullWidthButton onClick={this.setDestination} off={this.state.params.mode !== 'link' || !this.state.selectedEl}>Set Destination</FullWidthButton>
+            <FullWidthButton onClick={this.setDestination} off={mode !== 'link' || !this.state.selectedEl}>Set Destination</FullWidthButton>
           </Menu>
         </div>
       </div>
