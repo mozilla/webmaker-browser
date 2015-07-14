@@ -5,11 +5,42 @@
     height: 100%;
   }
 
+  #player-body {
+    height: 100%;
+  }
+
   .btn.meta-button {
     display: none;
   }
 
   .primary-btn:focus {
     outline: 0;
+  }
+
+  header {
+    background: @blue;
+    color: @white;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+
+    a {
+      flex-shrink: 0;
+    }
+
+    img {
+      width: 40px;
+      height: 40px;
+      margin-right: 10px;
+    }
+
+    h1 {
+      flex-grow: 1;
+      font-weight: 400;
+      margin: 0;
+      font-size: 20px;
+      color: #FCFCFC;
+      line-height: 28px;
+    }
   }
 }
