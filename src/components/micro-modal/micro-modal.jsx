@@ -4,7 +4,7 @@ module.exports = React.createClass({
   getInitialState: function () {
     return {
       isVisible: true
-    }
+    };
   },
   show: function () {
     this.setState({

@@ -91,7 +91,7 @@ module.exports = React.createClass({
     // Hide Android app ad when "No thanks" is clicked
     React.findDOMNode(this.refs.dismissButton).addEventListener('click', function (event) {
       this.refs.androidModal.hide();
-    }.bind(this))
+    }.bind(this));
   },
 
   formPages: function() {
