@@ -15,3 +15,4 @@ deploy:
     develop: webmaker-desktop-staging
   on:
     repo: mozilla/webmaker-browser
+    node: '0.12'
