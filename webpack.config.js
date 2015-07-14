@@ -1,5 +1,7 @@
 var path = require('path');
 
+var WEBMAKER_CORE_DIR = require('./npm_tasks/build-core').WEBMAKER_CORE_DIR;
+
 module.exports = {
   entry: __dirname + '/src/main.jsx',
   output: {
@@ -17,7 +19,7 @@ module.exports = {
         test: /\.js$/,
         loaders: ['babel-loader'],
         include: [
-          /\/webmaker-core\//,
+          WEBMAKER_CORE_DIR,
           path.resolve(__dirname, 'src')
         ]
       },
@@ -25,7 +27,7 @@ module.exports = {
         test: /\.jsx$/,
         loaders: ['babel-loader', 'jsx-loader'],
         include: [
-          /\/webmaker-core\//,
+          WEBMAKER_CORE_DIR,
           path.resolve(__dirname, 'src')
         ]
       },
@@ -33,7 +35,7 @@ module.exports = {
         test: /\.json$/,
         loaders: ['json-loader'],
         include: [
-          /\/webmaker-core\//,
+          WEBMAKER_CORE_DIR,
           path.resolve(__dirname, 'www_src'),
           path.resolve(__dirname, 'node_modules')
         ]
