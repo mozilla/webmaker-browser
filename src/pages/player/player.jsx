@@ -114,7 +114,7 @@ module.exports = React.createClass({
     return (
       <div id="player-body">
         <header>
-          <img src="/img/newlogo.png"/>
+          <a href="/"><img src="/img/newlogo.png"/></a>
           <h1>{ this.state.projectName } by { this.state.projectAuthor }</h1>
         </header>
         <div id="map" className={ mode }>
