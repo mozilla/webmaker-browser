@@ -5,6 +5,8 @@ var PageBlock = require("webmaker-core/src/pages/project/pageblock.jsx");
 var nets = require('nets');
 var config = require('../../config');
 
+var MicroModal = require('../../components/micro-modal/micro-modal.jsx');
+
 module.exports = React.createClass({
   mixins: [
     require('webmaker-core/src/pages/project/transforms'),
@@ -85,6 +87,11 @@ module.exports = React.createClass({
         }
       }
     }
+
+    // Hide Android app ad when "No thanks" is clicked
+    React.findDOMNode(this.refs.dismissButton).addEventListener('click', function (event) {
+      this.refs.androidModal.hide();
+    }.bind(this))
   },
 
   formPages: function() {
@@ -131,6 +138,16 @@ module.exports = React.createClass({
             <FullWidthButton onClick={this.setDestination} off={mode !== 'link' || !this.state.selectedEl}>Set Destination</FullWidthButton>
           </Menu>
         </div>
+
+        <MicroModal ref="androidModal">
+          <p>Made with Webmaker for Android.</p>
+          <div className="buttons">
+            <a href="https://play.google.com/store/apps/details?id=org.mozilla.webmaker" target="_blank">
+              <img src="/img/google-play.png"/>
+            </a>
+            <div className="column"><button ref="dismissButton">No, thanks</button></div>
+          </div>
+        </MicroModal>
       </div>
     );
   }
