@@ -5,6 +5,8 @@ var PageBlock = require("webmaker-core/src/pages/project/pageblock.jsx");
 var nets = require('nets');
 var config = require('../../config');
 
+var MicroModal = require('../../components/micro-modal/micro-modal.jsx');
+
 module.exports = React.createClass({
   mixins: [
     require('webmaker-core/src/pages/project/transforms'),
@@ -85,6 +87,11 @@ module.exports = React.createClass({
         }
       }
     }
+
+  },
+
+  dismissCTA: function () {
+    this.refs.androidModal.hide();
   },
 
   formPages: function() {
@@ -131,6 +138,18 @@ module.exports = React.createClass({
             <FullWidthButton onClick={this.setDestination} off={mode !== 'link' || !this.state.selectedEl}>Set Destination</FullWidthButton>
           </Menu>
         </div>
+
+        <MicroModal ref="androidModal">
+          <p>Made with Webmaker for Android.</p>
+          <div className="buttons">
+            <a href="https://play.google.com/store/apps/details?id=org.mozilla.webmaker" target="_blank">
+              <img src="/img/google-play.png"/>
+            </a>
+            <div className="column">
+              <button onClick={this.dismissCTA}>No, thanks</button>
+            </div>
+          </div>
+        </MicroModal>
       </div>
     );
   }
