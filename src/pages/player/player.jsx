@@ -88,10 +88,10 @@ module.exports = React.createClass({
       }
     }
 
-    // Hide Android app ad when "No thanks" is clicked
-    React.findDOMNode(this.refs.dismissButton).addEventListener('click', function (event) {
-      this.refs.androidModal.hide();
-    }.bind(this));
+  },
+
+  dismissCTA: function () {
+    this.refs.androidModal.hide();
   },
 
   formPages: function() {
@@ -145,7 +145,9 @@ module.exports = React.createClass({
             <a href="https://play.google.com/store/apps/details?id=org.mozilla.webmaker" target="_blank">
               <img src="/img/google-play.png"/>
             </a>
-            <div className="column"><button ref="dismissButton">No, thanks</button></div>
+            <div className="column">
+              <button onClick={this.dismissCTA}>No, thanks</button>
+            </div>
           </div>
         </MicroModal>
       </div>
