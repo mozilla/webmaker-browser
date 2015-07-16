@@ -103,6 +103,7 @@ module.exports = React.createClass({
         source: page.id === this.state.sourcePageID,
         target: page.id === this.state.selectedEl && this.state.params.mode === 'link',
         transform: this.cartesian.getTransform(page.coords),
+        interactive: this.state.isPageZoomed,
         onClick: this.onPageClick.bind(this, page)
       };
       return <PageBlock {...props} />;
