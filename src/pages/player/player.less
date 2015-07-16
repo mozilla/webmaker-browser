@@ -7,6 +7,8 @@
 
   #player-body {
     height: 100%;
+    display: flex;
+    flex-direction: column;
   }
 
   .btn.meta-button {
@@ -87,6 +89,15 @@
         border-radius: 4px;
         font-size: 14px;
       }
+    }
+  }
+
+  .dPad button {
+    background-image: url(../img/nub.svg);
+
+    &:active,
+    &:focus {
+      outline: 0;
     }
   }
 }
