@@ -271,7 +271,7 @@
       color: darken(#AAAFBD, 20%);
     }
     img {
-      margin-top: 30px;
+      margin-bottom: 30px;
     }
     .icon {
       margin: 0 4px 0 0;
@@ -281,7 +281,7 @@
       justify-content: center;
       align-items: center;
       max-width: 500px;
-      margin: 10px auto 30px auto;
+      margin: 30px auto;
       padding: 0;
       list-style: none;
       @media (max-width: 980px) {
@@ -304,6 +304,19 @@
           white-space: nowrap;
           padding: 10px 20px;
           display: block;
+          &.tools {
+            background: @legacyGreen;
+            padding: 4px 10px;
+            border-radius: 4px;
+            font-size: 11px;
+            color: white;
+            margin: 0 0 0 20px;
+            transition: background 0.3s ease-out;
+            &:hover {
+              text-decoration: none;
+              background: lighten(@legacyGreen, 3%)
+            }
+          }
         }
       }
     }
