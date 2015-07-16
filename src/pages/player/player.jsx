@@ -1,6 +1,5 @@
 var React = require('react');
 var {parseJSON} = require('webmaker-core/src/lib/jsonUtils');
-var PageBlock = require("webmaker-core/src/pages/project/pageblock.jsx");
 var nets = require('nets');
 var config = require('../../config');
 
@@ -16,7 +15,8 @@ module.exports = React.createClass({
     require('webmaker-core/src/pages/project/loader'),
     require('webmaker-core/src/pages/project/setdestination'),
     require('webmaker-core/src/pages/project/renderhelpers'),
-    require('webmaker-core/src/pages/project/dpad-logic')
+    require('webmaker-core/src/pages/project/dpad-logic'),
+    require('webmaker-core/src/pages/project/form-pages')
   ],
 
   getInitialState: function () {
@@ -93,21 +93,6 @@ module.exports = React.createClass({
 
   dismissCTA: function () {
     this.refs.androidModal.hide();
-  },
-
-  formPages: function() {
-    return this.state.pages.map((page) => {
-      var props = {
-        page,
-        selected: page.id === this.state.selectedEl,
-        source: page.id === this.state.sourcePageID,
-        target: page.id === this.state.selectedEl && this.state.params.mode === 'link',
-        transform: this.cartesian.getTransform(page.coords),
-        interactive: this.state.isPageZoomed,
-        onClick: this.onPageClick.bind(this, page)
-      };
-      return <PageBlock {...props} />;
-    });
   },
 
   render: function () {
