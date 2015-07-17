@@ -16,7 +16,7 @@ module.exports = React.createClass({
             <p>Below are the new terms of service for Webmaker and Mozilla Learning Networks, which will go into effect July 27, 2015.</p>
             <h1>Webmaker and teach.mozilla.org Terms of Use</h1>
 
-            <h3>June 27, 2015</h3>
+            <h3>July 27, 2015</h3>
 
             <p>At Mozilla, we promote choice and innovation by helping users realize the full potential of the web. To this end, we created Webmaker and the Mozilla Learning Network (collectively, the “Sites”). Webmaker (webmaker.org) enables users to leverage the web and learn about the underlying practices and technologies that make it open, safe, fun, and powerful. The Mozilla Learning Network (teach.mozilla.org) provides resources for educators and activists who want to teach web literacy and digital skills through making.</p>
 
