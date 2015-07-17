@@ -289,7 +289,10 @@
         text-align: left;
       }
       li {
-        @media (max-width: 980px) {
+        width: auto;
+        display: block;
+        text-align: center;
+        @media (min-width: 410px) {
           width: 33%;
           display: inline-flex;
           justify-content: center;
@@ -310,9 +313,16 @@
             border-radius: 4px;
             font-size: 11px;
             line-height: 19px;
+            width: 170px;
             color: white;
-            margin: 0 0 0 20px;
+            margin: 10px auto 0 auto;
+            text-align: center;
             transition: background 0.3s ease-out;
+            @media (min-width: 410px) {
+              margin: 0 0 0 20px;
+              text-align: center;
+              width: auto;
+            }
             &:hover {
               text-decoration: none;
               background: lighten(@legacyGreen, 3%)
