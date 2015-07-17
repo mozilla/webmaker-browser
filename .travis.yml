@@ -3,9 +3,6 @@ node_js:
 - '0.12'
 - iojs
 sudo: false
-cache:
-  directories:
-  - node_modules
 deploy:
   provider: heroku
   api_key:
