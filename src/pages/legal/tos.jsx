@@ -66,7 +66,7 @@ module.exports = React.createClass({
 
             <p>We may suspend or terminate your accounts or cease providing you with all or part of the Sites at any time for any reason, including, but not limited to, if we reasonably believe: (i) you have violated these Terms, (ii) you create risk or possible legal exposure for us; or (iii) our provision of the Sites to you is no longer commercially viable. We will make reasonable efforts to notify you by the email address associated with your account or the next time you attempt to access your account.</p>
 
-            <p>n all such cases, the Terms shall terminate, except that the following sections shall continue to apply: Release and Indemnification, Disclaimer; Limitation of Liability, Governing Law, Miscellaneous.</p>
+            <p>In all such cases, the Terms shall terminate, except that the following sections shall continue to apply: Release and Indemnification, Disclaimer; Limitation of Liability, Governing Law, Miscellaneous.</p>
 
             <h2>General Representation and Warranty</h2>
 
