@@ -7,6 +7,8 @@
 
   #player-body {
     height: 100%;
+    display: flex;
+    flex-direction: column;
   }
 
   .btn.meta-button {
@@ -41,6 +43,61 @@
       font-size: 20px;
       color: #FCFCFC;
       line-height: 28px;
+    }
+  }
+
+  .micro-modal {
+    display: none;
+
+    @media (min-width: 960px) {
+      display: block;
+
+      &.hidden {
+        display: none;
+      }
+    }
+
+    p {
+      margin: 0 0 1em 0;
+      font-size: 14px;
+    }
+
+    .buttons {
+      display: flex;
+      align-items: center;
+
+      a {
+        display: block;
+        margin-right: 10px;
+        line-height: 0;
+        flex-shrink: 0;
+      }
+
+      img {
+        width: 140px;
+      }
+
+      .column {
+        flex-grow: 1;
+      }
+
+      button {
+        background: darken(@modalSlate, 10%);
+        border: 0;
+        padding: 5px 10px;
+        width: 100%;
+        border-radius: 4px;
+        font-size: 14px;
+      }
+    }
+  }
+
+  .dPad button {
+    background-image: url(../img/nub.svg);
+
+    &:active,
+    &:focus {
+      outline: 0;
     }
   }
 }

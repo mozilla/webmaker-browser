@@ -3,7 +3,6 @@ var Router = require('react-router');
 
 var Splash = require('./pages/splash/splash.jsx');
 var TOS = require('./pages/legal/tos.jsx');
-var Privacy = require('./pages/legal/privacy.jsx');
 var Thumbnail = require('./pages/thumbnail/thumbnail.jsx');
 var Project = require('./pages/project/project.jsx');
 var Player = require('./pages/player/player.jsx');
@@ -32,7 +31,6 @@ var Routes = (
     <Route path="/project" handler={Project} />
     <Route path="/player" handler={Player} />
     <Route path="/legal" handler={TOS} />
-    <Route path="/privacy" handler={Privacy} />
     <NotFoundRoute handler={ErrorView} />
     <DefaultRoute handler={Splash} />
   </Route>

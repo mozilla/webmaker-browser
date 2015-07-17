@@ -1,9 +1,10 @@
 var React = require('react');
 var {parseJSON} = require('webmaker-core/src/lib/jsonUtils');
-var {Menu, PrimaryButton, FullWidthButton} = require('../../../node_modules/webmaker-core/src/components/action-menu/action-menu.jsx');
-var PageBlock = require("webmaker-core/src/pages/project/pageblock.jsx");
 var nets = require('nets');
 var config = require('../../config');
+
+var MicroModal = require('../../components/micro-modal/micro-modal.jsx');
+var DPad = require('webmaker-core/src/components/d-pad/d-pad.jsx');
 
 module.exports = React.createClass({
   mixins: [
@@ -13,7 +14,9 @@ module.exports = React.createClass({
     require('webmaker-core/src/pages/project/pageadmin'),
     require('webmaker-core/src/pages/project/loader'),
     require('webmaker-core/src/pages/project/setdestination'),
-    require('webmaker-core/src/pages/project/renderhelpers')
+    require('webmaker-core/src/pages/project/renderhelpers'),
+    require('webmaker-core/src/pages/project/dpad-logic'),
+    require('webmaker-core/src/pages/project/form-pages')
   ],
 
   getInitialState: function () {
@@ -85,20 +88,11 @@ module.exports = React.createClass({
         }
       }
     }
+
   },
 
-  formPages: function() {
-    return this.state.pages.map((page) => {
-      var props = {
-        page,
-        selected: page.id === this.state.selectedEl,
-        source: page.id === this.state.sourcePageID,
-        target: page.id === this.state.selectedEl && this.state.params.mode === 'link',
-        transform: this.cartesian.getTransform(page.coords),
-        onClick: this.onPageClick.bind(this, page)
-      };
-      return <PageBlock {...props} />;
-    });
+  dismissCTA: function () {
+    this.refs.androidModal.hide();
   },
 
   render: function () {
@@ -118,19 +112,31 @@ module.exports = React.createClass({
           <h1>{ this.state.projectName } by { this.state.projectAuthor }</h1>
         </header>
         <div id="map" className={ mode }>
+          <DPad
+            ref="dpad"
+            onDirectionClick={ this.handleDirectionClick }
+            isVisible={ this.state.isPageZoomed }>
+          </DPad>
+
           <div ref="bounding" className="bounding" style={ this.getBoundingStyle() }>
             <div className="test-container" style={ this.getContainerStyle() }>
             { this.formPages() }
             { this.generateAddContainers(isPlayOnly) }
             </div>
           </div>
-
-          <Menu fullWidth={ mode === 'link' }>
-            { this.getRemovePageButton(isPlayOnly) }
-            <PrimaryButton onClick={this.zoomFromPage} off={!this.state.isPageZoomed} icon="../../img/zoom-out.svg" />
-            <FullWidthButton onClick={this.setDestination} off={mode !== 'link' || !this.state.selectedEl}>Set Destination</FullWidthButton>
-          </Menu>
         </div>
+
+        <MicroModal ref="androidModal">
+          <p>Made with Webmaker for Android.</p>
+          <div className="buttons">
+            <a href="https://play.google.com/store/apps/details?id=org.mozilla.webmaker" target="_blank">
+              <img src="/img/google-play.png"/>
+            </a>
+            <div className="column">
+              <button onClick={this.dismissCTA}>No, thanks</button>
+            </div>
+          </div>
+        </MicroModal>
       </div>
     );
   }
