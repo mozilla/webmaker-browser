@@ -5,6 +5,7 @@ var config = require('../../config');
 
 var MicroModal = require('../../components/micro-modal/micro-modal.jsx');
 var DPad = require('webmaker-core/src/components/d-pad/d-pad.jsx');
+var FormattedMessage = require('react-intl').FormattedMessage;
 
 module.exports = React.createClass({
   mixins: [
@@ -16,7 +17,8 @@ module.exports = React.createClass({
     require('webmaker-core/src/pages/project/setdestination'),
     require('webmaker-core/src/pages/project/renderhelpers'),
     require('webmaker-core/src/pages/project/dpad-logic'),
-    require('webmaker-core/src/pages/project/form-pages')
+    require('webmaker-core/src/pages/project/form-pages'),
+    require('react-intl').IntlMixin
   ],
 
   getInitialState: function () {
@@ -109,7 +111,12 @@ module.exports = React.createClass({
       <div id="player-body">
         <header>
           <a href="/"><img src="/img/newlogo.png"/></a>
-          <h1>{ this.state.projectName } by { this.state.projectAuthor }</h1>
+          <h1>
+            <FormattedMessage
+              message={this.getIntlMessage('project_title_play_page')}
+              projectName={ this.state.projectName }
+              projectAuthor={ this.state.projectAuthor }/>
+          </h1>
         </header>
         <div id="map" className={ mode }>
           <DPad
@@ -127,13 +134,13 @@ module.exports = React.createClass({
         </div>
 
         <MicroModal ref="androidModal">
-          <p>Made with Webmaker for Android.</p>
+          <p>{this.getIntlMessage('made_with_webmaker_android')}</p>
           <div className="buttons">
             <a href="https://play.google.com/store/apps/details?id=org.mozilla.webmaker" target="_blank">
               <img src="/img/google-play.png"/>
             </a>
             <div className="column">
-              <button onClick={this.dismissCTA}>No, thanks</button>
+              <button onClick={this.dismissCTA}>{this.getIntlMessage('no_thanks')}</button>
             </div>
           </div>
         </MicroModal>

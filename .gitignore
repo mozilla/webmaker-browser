@@ -4,3 +4,4 @@ npm-**
 /build
 src/config.js
 .env
+src/locales/*.json

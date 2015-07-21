@@ -7,7 +7,10 @@ var Thumbnail = require('./pages/thumbnail/thumbnail.jsx');
 var Project = require('./pages/project/project.jsx');
 var Player = require('./pages/player/player.jsx');
 var ErrorView = require('./pages/error/error.jsx');
-
+var intlData = {
+    locales : ['en-US'],
+    messages: require('./locales/en-US.json')
+};
 var Route = Router.Route;
 var NotFoundRoute = Router.NotFoundRoute;
 var DefaultRoute = Router.DefaultRoute;
@@ -18,7 +21,7 @@ var RouteHandler = Router.RouteHandler;
  */
 var App = React.createClass({
   render: function () {
-    return <RouteHandler />;
+    return <RouteHandler {...intlData} />;
   }
 });
 

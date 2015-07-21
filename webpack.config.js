@@ -37,6 +37,7 @@ module.exports = {
         include: [
           WEBMAKER_CORE_DIR,
           path.resolve(__dirname, 'www_src'),
+          path.resolve(__dirname, 'src/locales'),
           path.resolve(__dirname, 'node_modules')
         ]
       }
