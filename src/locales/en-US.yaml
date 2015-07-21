@@ -20,3 +20,6 @@ en-US:
   give_us_a_shout_sentence: "{GiveUsAShoutLink} if you think there’s something wrong."
   page_404: This page doesn't exist!
   return_to_webmaker: Return to Webmaker
+  project_title_play_page: "{ projectName } by { projectAuthor }"
+  made_with_webmaker_android: Made with Webmaker for Android.
+  no_thanks: No, thanks
