@@ -4,13 +4,14 @@ var Footer = require('../../components/footer/footer.jsx');
 var Masthead = require('../../components/masthead/masthead.jsx');
 
 module.exports = React.createClass({
+  mixins: [require('react-intl').IntlMixin],
   render: function () {
     return (
       <div id="splash">
         <Masthead>
           <div id="signup">
-            <h1>Connect the things you love.</h1>
-            <h2>Capture, collect, and share with your friends.</h2>
+            <h1>{this.getIntlMessage('connect_things_you_love')}</h1>
+            <h2>{this.getIntlMessage('capture_collect_share')}</h2>
             <div className="google-play">
               <a href="https://play.google.com/store/apps/details?id=org.mozilla.webmaker">
                 <img alt="Get it on Google Play"
@@ -27,17 +28,17 @@ module.exports = React.createClass({
         <div id="mid">
           <div className="inner">
             <div className="segment quote">
-              <p>"There's no better way to learn the mechanics and culture of the web than by playing around and hacking it in a safe, fun environment." <span className="signature">– Lifehacker</span></p>
+              <p>"{this.getIntlMessage('lifehackersquote')}" <span className="signature">– Lifehacker</span></p>
             </div>
 
             <div className="segment feature">
-              <h4>Local Content</h4>
-              <p>We all use the web in different ways. Mozilla is dedicated to helping you build a web that’s relevant to your friends, family, business or community.</p>
+              <h4>{this.getIntlMessage('local_content')}</h4>
+              <p>{this.getIntlMessage('use_the_web_different_ways')}</p>
             </div>
 
             <div className="segment feature">
-              <h4>Free Forever</h4>
-              <p>Mozilla is a non-profit organization and these open-source tools are created by a global community. They will always be 100% free — now and forever!</p>
+              <h4>{this.getIntlMessage('free_forever')}</h4>
+              <p>{this.getIntlMessage('mozilla_open_source')}</p>
             </div>
           </div>
         </div>
@@ -46,9 +47,9 @@ module.exports = React.createClass({
           <MakerPartyPromo
             logoAlt="Maker Party Promo"
             logoSrc="./img/maker-party@2x.png"
-            head="Host a Maker Party"
-            subhead="Maker Party is Mozilla's global campaign to teach the Web. Join us between July 15 and 31."
-            ctaText="Get started"
+            head={this.getIntlMessage('host_maker_party')}
+            subhead={this.getIntlMessage('maker_party_cta')}
+            ctaText={this.getIntlMessage('get_started')}
             ctaLink="https://teach.mozilla.org/events/?ref=beta.webmaker.org"
           />
         </div>
