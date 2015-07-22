@@ -26,9 +26,9 @@ module.exports = React.createClass({
       loading: true,
       selectedEl: '',
       pages: [],
-      camera: {},
-      zoom: this.DEFAULT_ZOOM,
+      matrix: [this.DEFAULT_ZOOM, 0, 0, this.DEFAULT_ZOOM, 0, 0 ],
       isPageZoomed: false,
+      isFirstLoad: true,
       params: {
         user: this.props.query.user,
         project: this.props.query.project,
@@ -84,8 +84,7 @@ module.exports = React.createClass({
         if (state.params && state.params.project === this.state.params.project) {
           this.setState({
             selectedEl: state.selectedEl,
-            camera: state.camera,
-            zoom: state.zoom
+            matrix: state.matrix
           });
         }
       }
