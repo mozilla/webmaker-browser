@@ -21,5 +21,9 @@ en-US:
   page_404: This page doesn't exist!
   return_to_webmaker: Return to Webmaker
   project_title_play_page: "{ projectName } by { projectAuthor }"
-  made_with_webmaker_android: Made with Webmaker for Android.
   no_thanks: No, thanks
+  use_webmaker_app: Use the Webmaker App!
+  like_it_better: We think you'll like it better.
+  open_app: Open App
+  searching: Searching...
+  close_message: Close this message

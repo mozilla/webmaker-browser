@@ -3,9 +3,9 @@ var {parseJSON} = require('webmaker-core/src/lib/jsonUtils');
 var nets = require('nets');
 var config = require('../../config');
 
-var MicroModal = require('../../components/micro-modal/micro-modal.jsx');
 var DPad = require('webmaker-core/src/components/d-pad/d-pad.jsx');
 var FormattedMessage = require('react-intl').FormattedMessage;
+var AppCta = require('../../components/app-cta/app-cta.jsx');
 
 module.exports = React.createClass({
   mixins: [
@@ -109,7 +109,7 @@ module.exports = React.createClass({
     var isPlayOnly = (mode === 'play' || mode === 'link');
     return (
       <div id="player-body">
-        <header>
+        <header className="main">
           <a href="/"><img src="/img/newlogo.png"/></a>
           <h1>
             <FormattedMessage
@@ -118,6 +118,7 @@ module.exports = React.createClass({
               projectAuthor={ this.state.projectAuthor }/>
           </h1>
         </header>
+        <AppCta project={this.state.params.project} user={this.state.params.user} />
         <div id="map" className={ mode }>
           <DPad
             ref="dpad"
@@ -133,17 +134,6 @@ module.exports = React.createClass({
           </div>
         </div>
 
-        <MicroModal ref="androidModal">
-          <p>{this.getIntlMessage('made_with_webmaker_android')}</p>
-          <div className="buttons">
-            <a href="https://play.google.com/store/apps/details?id=org.mozilla.webmaker" target="_blank">
-              <img src="/img/google-play.png"/>
-            </a>
-            <div className="column">
-              <button onClick={this.dismissCTA}>{this.getIntlMessage('no_thanks')}</button>
-            </div>
-          </div>
-        </MicroModal>
       </div>
     );
   }

@@ -1,0 +1,71 @@
+header.app-cta {
+  display: flex;
+  align-items: center;
+
+  background: #414567;
+  color: @softGrey;
+  padding: 13px;
+  font-size: 13px;
+
+  &[hidden="true"] {
+    display: none;
+  }
+
+  .open-loading {
+    animation: pulseOpacity 1s infinite;
+  }
+
+  .left {
+    flex-grow: 1;
+  }
+  .right {
+    flex-shrink: 0;
+  }
+  h3,
+  p {
+    line-height: 1;
+    margin: 0;
+    display: inline-block;
+  }
+  h3 {
+    font-weight: normal;
+    margin-right: 8px;
+  }
+  p {
+    color: fade(@softGrey, 80%);
+  }
+  button {
+    outline: none;
+    box-sizing: content-box;
+    text-transform: uppercase;
+    background: fade(@softGrey, 5%);
+    color: @softGrey;
+    border: 1px solid fade(@softGrey, 90%);
+    height: 31px;
+    line-height: 14px;
+    &:first-child {
+      padding: 0 14px;
+      border-radius: 20px;
+      margin-right: 10px;
+    }
+    &:last-child {
+      font-size: 12px;
+      padding: 0;
+      width: 31px;
+      border-radius: 31px;
+      margin-right: -5px;
+    }
+  }
+}
+
+@keyframes pulseOpacity {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
