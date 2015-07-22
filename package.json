@@ -39,7 +39,7 @@
     "nets": "3.1.0",
     "react-intl": "^1.2.0",
     "react-router": "0.13.3",
-    "webmaker-core": "https://github.com/mozilla/webmaker-core.git"
+    "webmaker-core": "https://github.com/mozilla/webmaker-core.git#6c24c96d4db3829aacb279f44305d53314f98adc"
   },
   "devDependencies": {
     "autoless": "~0.1.7",
