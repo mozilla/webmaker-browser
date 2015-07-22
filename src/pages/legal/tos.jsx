@@ -4,7 +4,8 @@ var Masthead = require('../../components/masthead/masthead.jsx');
 
 module.exports = React.createClass({
   mixins: [
-    React.addons.LinkedStateMixin
+    React.addons.LinkedStateMixin,
+    require('react-intl').IntlMixin
   ],
   render: function () {
     return (
