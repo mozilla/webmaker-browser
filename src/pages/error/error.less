@@ -28,12 +28,12 @@
       }
 
       a {
-        text-decoration: underline;
+        &:not(.btn) {
+          text-decoration: underline;
+        }
 
         &.btn  {
           color: @blue;
-          text-decoration: none;
-          text-transform: uppercase;
           margin: 20px 0;
         }
       }
