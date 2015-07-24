@@ -18,7 +18,6 @@ en-US:
   thimble_goggles: Thimble & X-Ray Goggles
   give_us_a_shout: Give us a shout
   give_us_a_shout_sentence: "{GiveUsAShoutLink} if you think there’s something wrong."
-  teach_site_url: teach.mozilla.org
   or_visit_teach_mozilla_org: "Or visit {LinkToTeachSite}"
   page_404: This page doesn't exist!
   return_to_webmaker: Return to Webmaker
