@@ -4,7 +4,6 @@ var Router = require('react-router');
 var Splash = require('./pages/splash/splash.jsx');
 var TOS = require('./pages/legal/tos.jsx');
 var Thumbnail = require('./pages/thumbnail/thumbnail.jsx');
-var Project = require('./pages/project/project.jsx');
 var Player = require('./pages/player/player.jsx');
 var ErrorView = require('./pages/error/error.jsx');
 var intlData = {
