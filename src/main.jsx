@@ -12,6 +12,7 @@ var intlData = {
     messages: require('./locales/en-US.json')
 };
 var Route = Router.Route;
+var Redirect = Router.Redirect;
 var NotFoundRoute = Router.NotFoundRoute;
 var DefaultRoute = Router.DefaultRoute;
 var RouteHandler = Router.RouteHandler;
@@ -31,8 +32,8 @@ var App = React.createClass({
 var Routes = (
   <Route path="/" handler={App}>
     <Route path="/thumbnail" handler={Thumbnail} />
-    <Route path="/project" handler={Project} />
-    <Route path="/player" handler={Player} />
+    <Route path="/project" handler={Player} />
+    <Redirect from="/player" to="/project" />
     <Route path="/legal" handler={TOS} />
     <NotFoundRoute handler={ErrorView} />
     <DefaultRoute handler={Splash} />
