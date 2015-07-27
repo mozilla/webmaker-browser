@@ -52,7 +52,7 @@ var AppCta = React.createClass({
           <span hidden={this.state.loading}>{this.getIntlMessage('open_app')}</span>
           <span hidden={!this.state.loading} className="open-loading">{this.getIntlMessage('searching')}</span>
         </button>
-        <button onClick={this.closeCta}>&#10005;<span className="sr-only">{this.getIntlMessage('close_message')}</span></button>
+        <button onClick={this.closeCta}><img src="./img/icon-close.svg" alt="close notice"/><span className="sr-only">{this.getIntlMessage('close_message')}</span></button>
       </div>
     </header>);
   }
