@@ -10,6 +10,7 @@ module.exports = React.createClass({
   ],
   render: function () {
     var helpLink = (<a href="mailto:help@webmaker.org">{this.getIntlMessage('give_us_a_shout')}</a>);
+    var teachSiteLink = (<a href="https://teach.mozilla.org/">teach.mozilla.org</a>);
 
     return (
       <div id="splash" className="error">
@@ -25,6 +26,11 @@ module.exports = React.createClass({
                 GiveUsAShoutLink={helpLink} />
             </p>
             <a className="btn" href="#/">{this.getIntlMessage('return_to_webmaker')}</a>
+            <p>
+              <FormattedMessage
+                message={this.getIntlMessage('or_visit_teach_mozilla_org')}
+                LinkToTeachSite={teachSiteLink} />
+            </p>
           </div>
         </div>
 
