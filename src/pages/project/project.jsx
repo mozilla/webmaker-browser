@@ -1,55 +1,51 @@
 var React = require('react');
+var {parseJSON} = require('webmaker-core/src/lib/jsonUtils');
 var nets = require('nets');
 var config = require('../../config');
 
-var Card = React.createClass({
-  getDefaultProps: function () {
-    return {};
-  },
-  componentDidMount: function () {
-    window.addEventListener('blur', this.onBlur);
-  },
-  componentDidUnmount: function () {
-    window.removeEventListener('blur', this.onBlur);
-  },
-  onBlur: function () {
-    clearTimeout(this.timeout);
-  },
-  onClick: function () {
-    var fallback = this.props.fallback;
-    if (fallback) {
-      this.timeout = setTimeout(function () {
-        window.location = fallback;
-      }, 2000);
-    }
-    window.location = this.props.link;
-  },
-  render: function () {
-    var project = this.props.project || {};
-    var thumbnail = project.thumbnail && project.thumbnail[320];
-    return (<div hidden={!project.title} className={project.title ? 'card' : ''} onClick={this.onClick}>
-      <div className="thumbnail">
-        <img src={thumbnail ? thumbnail : './img/default.svg'} />
-      </div>
-      <div className="text">
-        <h3 className="title">{project.title}</h3>
-        <p className="author">{project.author && project.author.username}</p>
-      </div>
-    </div>);
-  }
-});
+var DPad = require('webmaker-core/src/components/d-pad/d-pad.jsx');
+var FormattedMessage = require('react-intl').FormattedMessage;
+var AppCta = require('../../components/app-cta/app-cta.jsx');
 
 module.exports = React.createClass({
+  mixins: [
+    require('webmaker-core/src/pages/project/transforms'),
+    require('webmaker-core/src/pages/project/remix'),
+    require('webmaker-core/src/pages/project/cartzoom'),
+    require('webmaker-core/src/pages/project/pageadmin'),
+    require('webmaker-core/src/pages/project/loader'),
+    require('webmaker-core/src/pages/project/setdestination'),
+    require('webmaker-core/src/pages/project/renderhelpers'),
+    require('webmaker-core/src/pages/project/dpad-logic'),
+    require('webmaker-core/src/pages/project/form-pages'),
+    require('react-intl').IntlMixin
+  ],
 
   getInitialState: function () {
     return {
-      isLoading: false,
-      project: null,
-      error: false
+      loading: true,
+      selectedEl: '',
+      pages: [],
+      matrix: [this.DEFAULT_ZOOM, 0, 0, this.DEFAULT_ZOOM, 0, 0 ],
+      isPageZoomed: false,
+      isFirstLoad: true,
+      params: {
+        user: this.props.query.user,
+        project: this.props.query.project,
+        mode: 'play'
+      },
+      projectName: 'Untitled',
+      projectAuthor: 'Anonymous'
     };
   },
 
   componentWillMount: function () {
+    this.load();
+
+    // Add CSS hook
+    document.querySelector('html').setAttribute('id', 'project-player');
+
+    // Retrieve project metadata: project name & author
     var options = {
       method: 'GET',
       uri: config.API_URI +
@@ -58,24 +54,85 @@ module.exports = React.createClass({
       json: {}
     };
 
-    this.setState({isLoading: true});
     nets(options, (err, res, body) => {
-      this.setState({isLoading: false});
-
       if (err || res.statusCode !== 200) {
-        this.setState({error: true});
-        return console.error('Not found');
+        return console.error('Could not fetch the page');
       }
 
-      this.setState({project: body.project, error: false});
+      this.setState({
+        projectAuthor: body.project.author.username,
+        projectName: body.project.title
+      });
     });
   },
+
+  componentDidUpdate: function (prevProps) {
+    if (this.props.isVisible && !prevProps.isVisible) {
+      this.load();
+    }
+
+    if (window.Platform) {
+      window.Platform.setMemStorage('state', JSON.stringify(this.state));
+    }
+  },
+
+  componentDidMount: function () {
+    if (window.Platform) {
+      var state = window.Platform.getMemStorage('state');
+      if (this.state.params.mode === 'edit') {
+        state = parseJSON(state);
+        if (state.params && state.params.project === this.state.params.project) {
+          this.setState({
+            selectedEl: state.selectedEl,
+            matrix: state.matrix
+          });
+        }
+      }
+    }
+
+  },
+
+  dismissCTA: function () {
+    this.refs.androidModal.hide();
+  },
+
   render: function () {
-    var link = 'webmaker://play?user=' + this.props.query.user + '&project=' + this.props.query.project + '#Intent;scheme=webmaker;package=org.mozilla.webmaker;S.browser_fallback_url=https%3A%2F%2Fplay.google.com%2Fstore%2Fapps%2Fdetails%3Fid%3Dorg.mozilla.webmaker;end';
+    // FIXME: TODO: this should be handled with a touch preventDefault,
+    //              not by reaching into a DOM element.
+    //
+    // Prevent pull to refresh
+    // FIXME: TODO: This should be done by preventDefaulting the touch event, not via CSS.
+    // FIXME: TODO: Add <Loading /> component after localization is initialized
+    document.body.style.overflowY = 'hidden';
+    var mode = this.state.params.mode;
+    var isPlayOnly = (mode === 'play' || mode === 'link');
     return (
-      <div id="project">
-        <div hidden={!this.state.error}>Sorry, this project does not seem to exist!</div>
-        <Card project={this.state.project} link={link} fallback="https://play.google.com/store/apps/details?id=org.mozilla.webmaker" />
+      <div id="player-body">
+        <header className="main">
+          <a href="/"><img src="/img/newlogo.png"/></a>
+          <h1>
+            <FormattedMessage
+              message={this.getIntlMessage('project_title_play_page')}
+              projectName={ this.state.projectName }
+              projectAuthor={ this.state.projectAuthor }/>
+          </h1>
+        </header>
+        <AppCta project={this.state.params.project} user={this.state.params.user} />
+        <div id="map" className={ mode }>
+          <DPad
+            ref="dpad"
+            onDirectionClick={ this.handleDirectionClick }
+            isVisible={ this.state.isPageZoomed }>
+          </DPad>
+
+          <div ref="bounding" className="bounding" style={ this.getBoundingStyle() }>
+            <div className="test-container" style={ this.getContainerStyle() }>
+            { this.formPages() }
+            { this.generateAddContainers(isPlayOnly) }
+            </div>
+          </div>
+        </div>
+
       </div>
     );
   }

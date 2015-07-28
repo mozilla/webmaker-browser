@@ -5,13 +5,13 @@ var Splash = require('./pages/splash/splash.jsx');
 var TOS = require('./pages/legal/tos.jsx');
 var Thumbnail = require('./pages/thumbnail/thumbnail.jsx');
 var Project = require('./pages/project/project.jsx');
-var Player = require('./pages/player/player.jsx');
 var ErrorView = require('./pages/error/error.jsx');
 var intlData = {
     locales : ['en-US'],
     messages: require('./locales/en-US.json')
 };
 var Route = Router.Route;
+var Redirect = Router.Redirect;
 var NotFoundRoute = Router.NotFoundRoute;
 var DefaultRoute = Router.DefaultRoute;
 var RouteHandler = Router.RouteHandler;
@@ -32,7 +32,7 @@ var Routes = (
   <Route path="/" handler={App}>
     <Route path="/thumbnail" handler={Thumbnail} />
     <Route path="/project" handler={Project} />
-    <Route path="/player" handler={Player} />
+    <Redirect from="/player" to="/project" />
     <Route path="/legal" handler={TOS} />
     <NotFoundRoute handler={ErrorView} />
     <DefaultRoute handler={Splash} />
