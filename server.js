@@ -47,7 +47,6 @@ server.route({
   method: 'GET',
   path: '/users/{user}/projects/{project}',
   handler: function (request, reply) {
-    // TODO: Replace with desktop player
     reply.redirect('/#/project?' + qs.stringify(request.params));
   }
 });

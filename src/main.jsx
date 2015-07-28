@@ -4,7 +4,7 @@ var Router = require('react-router');
 var Splash = require('./pages/splash/splash.jsx');
 var TOS = require('./pages/legal/tos.jsx');
 var Thumbnail = require('./pages/thumbnail/thumbnail.jsx');
-var Player = require('./pages/player/player.jsx');
+var Project = require('./pages/project/project.jsx');
 var ErrorView = require('./pages/error/error.jsx');
 var intlData = {
     locales : ['en-US'],
@@ -31,7 +31,7 @@ var App = React.createClass({
 var Routes = (
   <Route path="/" handler={App}>
     <Route path="/thumbnail" handler={Thumbnail} />
-    <Route path="/project" handler={Player} />
+    <Route path="/project" handler={Project} />
     <Redirect from="/player" to="/project" />
     <Route path="/legal" handler={TOS} />
     <NotFoundRoute handler={ErrorView} />
