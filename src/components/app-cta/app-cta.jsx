@@ -1,4 +1,5 @@
 var React = require('react');
+var cookie = require('react-cookie');
 
 var AppCta = React.createClass({
   statics: {
@@ -9,7 +10,7 @@ var AppCta = React.createClass({
   ],
   getInitialState: function () {
     return {
-      hidden: false
+      hidden: cookie.load('hideCTA') ? true : false
     };
   },
   getDeepLink: function () {
@@ -37,12 +38,17 @@ var AppCta = React.createClass({
     window.location = this.getDeepLink();
   },
   closeCta: function () {
+    // Keep CTA dismissed for 30 days
+    cookie.save('hideCTA', 1, {
+      expires: new Date(Date.now() + (30 * 24 * 60 * 60 * 1000))
+    });
+
     this.setState({
       hidden: true
     });
   },
   render: function () {
-    return (<header hidden={this.state.hidden} className="app-cta">
+    return (<header className={'app-cta' + (this.state.hidden ? ' hidden' : '')}>
       <div className="left">
         <h3>{this.getIntlMessage('use_webmaker_app')}</h3>
         <p>{this.getIntlMessage('like_it_better')}</p>
