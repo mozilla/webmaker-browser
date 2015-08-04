@@ -1,0 +1,30 @@
+---
+en-US:
+  connect_things_you_love: Connect the things you love.
+  capture_collect_share: Capture, collect, and share with your friends.
+  lifehackersquote: There's no better way to learn the mechanics and culture of the web than by playing around and hacking it in a safe, fun environment.
+  local_content: Local Content
+  use_the_web_different_ways: We all use the web in different ways. Mozilla is dedicated to helping you build a web that’s relevant to your friends, family, business or community.
+  free_forever: Free Forever
+  mozilla_open_source: Mozilla is a non-profit organization and these open-source tools are created by a global community. They will always be 100% free — now and forever!
+  host_maker_party: Host a Maker Party
+  maker_party_cta: Maker Party is Mozilla's global campaign to teach the Web. Join us between July 15 and 31.
+  get_started: Get started
+  legal: Legal
+  privacy: Privacy
+  donate: Donate
+  contact: Contact
+  twitter: Twitter
+  thimble_goggles: Thimble & X-Ray Goggles
+  give_us_a_shout: Give us a shout
+  give_us_a_shout_sentence: "{GiveUsAShoutLink} if you think there’s something wrong."
+  or_visit_teach_mozilla_org: "Or visit {LinkToTeachSite}"
+  page_404: This page doesn't exist!
+  return_to_webmaker: Return to Webmaker
+  project_title_play_page: "{ projectName } by { projectAuthor }"
+  no_thanks: No, thanks
+  use_webmaker_app: Use the Webmaker App!
+  like_it_better: We think you'll like it better.
+  open_app: Open App
+  searching: Searching...
+  close_message: Close this message
