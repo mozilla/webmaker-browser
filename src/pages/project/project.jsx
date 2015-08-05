@@ -2,6 +2,7 @@ var React = require('react');
 var {parseJSON} = require('webmaker-core/src/lib/jsonUtils');
 var nets = require('nets');
 var config = require('../../config');
+var platform = require('webmaker-core/src/lib/platform');
 
 var DPad = require('webmaker-core/src/components/d-pad/d-pad.jsx');
 var FormattedMessage = require('react-intl').FormattedMessage;
@@ -58,6 +59,8 @@ module.exports = React.createClass({
       if (err || res.statusCode !== 200) {
         return console.error('Could not fetch the page');
       }
+
+      platform.trackEvent('Browser Player', 'Open Project', 'Open Project Success', options.uri);
 
       this.setState({
         projectAuthor: body.project.author.username,

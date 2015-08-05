@@ -1,5 +1,6 @@
 var React = require('react');
 var cookie = require('react-cookie');
+var platform = require('webmaker-core/src/lib/platform');
 
 var AppCta = React.createClass({
   statics: {
@@ -29,6 +30,9 @@ var AppCta = React.createClass({
     });
   },
   openApp: function () {
+
+    platform.trackEvent('Browser Player', 'Click CTA', 'CTA: Open app', this.getDeepLink());
+
     this.setState({
       loading: true
     });
