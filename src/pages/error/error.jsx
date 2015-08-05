@@ -6,12 +6,17 @@ var FormattedMessage = require('react-intl').FormattedMessage;
 module.exports = React.createClass({
   mixins: [
     React.addons.LinkedStateMixin,
+    require('react-router').State,
     require('react-intl').IntlMixin
   ],
   render: function () {
     var helpLink = (<a href="mailto:help@webmaker.org">{this.getIntlMessage('give_us_a_shout')}</a>);
     var teachSiteLink = (<a href="https://teach.mozilla.org/">teach.mozilla.org</a>);
-
+    var currentPath = this.getPathname();
+    var errorMessage = this.getIntlMessage('page_404');
+    if (currentPath === '/project-not-found') {
+      errorMessage = this.getIntlMessage('project_404');
+    }
     return (
       <div id="splash" className="error">
         <Masthead/>
@@ -19,7 +24,7 @@ module.exports = React.createClass({
         <div id="mid">
           <div className="inner legal centered">
             <h1>404</h1>
-            <h2>{this.getIntlMessage('page_404')}</h2>
+            <h2>{errorMessage}</h2>
             <p>
               <FormattedMessage
                 message={this.getIntlMessage('give_us_a_shout_sentence')}
