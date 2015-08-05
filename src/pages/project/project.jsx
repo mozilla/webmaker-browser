@@ -9,6 +9,7 @@ var AppCta = require('../../components/app-cta/app-cta.jsx');
 
 module.exports = React.createClass({
   mixins: [
+    require('react-router').Navigation,
     require('webmaker-core/src/pages/project/transforms'),
     require('webmaker-core/src/pages/project/remix'),
     require('webmaker-core/src/pages/project/cartzoom'),
@@ -55,6 +56,10 @@ module.exports = React.createClass({
     };
 
     nets(options, (err, res, body) => {
+      if (res.statusCode === 404) {
+        return this.replaceWith('/project-not-found?user=' + this.props.query.user + '&project=' + this.props.query.project);
+      }
+
       if (err || res.statusCode !== 200) {
         return console.error('Could not fetch the page');
       }
