@@ -2,19 +2,21 @@ var React = require('react');
 var Router = require('react-router');
 
 var Splash = require('./pages/splash/splash.jsx');
-var TOS = require('./pages/legal/tos.jsx');
+var Legal = require('./pages/legal/legal.jsx');
 var Thumbnail = require('./pages/thumbnail/thumbnail.jsx');
 var Project = require('./pages/project/project.jsx');
 var ErrorView = require('./pages/error/error.jsx');
-var intlData = {
-    locales : ['en-US'],
-    messages: require('./locales/en-US.json')
-};
+
 var Route = Router.Route;
 var Redirect = Router.Redirect;
 var NotFoundRoute = Router.NotFoundRoute;
 var DefaultRoute = Router.DefaultRoute;
 var RouteHandler = Router.RouteHandler;
+
+var intlData = {
+    locales : ['en-US'],
+    messages: require('./locales/en-US.json')
+};
 
 /**
  * Create base class
@@ -32,9 +34,11 @@ var Routes = (
   <Route path="/" handler={App}>
     <Route path="/thumbnail" handler={Thumbnail} />
     <Route path="/project" handler={Project} />
-    <Redirect from="/player" to="/project" />
-    <Route path="/legal" handler={TOS} />
+    <Route path="/legal" handler={Legal} />
     <Route path="/project-not-found" handler={ErrorView} />
+    
+    <Redirect from="/player" to="/project" />
+
     <NotFoundRoute handler={ErrorView} />
     <DefaultRoute handler={Splash} />
   </Route>
