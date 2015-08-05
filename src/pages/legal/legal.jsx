@@ -57,7 +57,7 @@ module.exports = React.createClass({
 
           <h2>9. Termination</h2>
           <p>The Terms will continue to apply until terminated by either you or Mozilla.</p>
-          <p>You may end your agreement with Mozilla regarding the Sites at any time for any reason by discontinuing your use of the sites and, if applicable, deactivating your account.If you stop using the Sites without deactivating your account, your account may be deactivated due to prolonged inactivity.</p>
+          <p>You may end your agreement with Mozilla regarding the Sites at any time for any reason by discontinuing your use of the sites and, if applicable, deactivating your account. If you stop using the Sites without deactivating your account, your account may be deactivated due to prolonged inactivity.</p>
           <p>We may suspend or terminate your accounts or cease providing you with all or part of the Sites at any time for any reason, including, but not limited to, if we reasonably believe: (i) you have violated these Terms, (ii) you create risk or possible legal exposure for us; or (iii) our provision of the Sites to you is no longer commercially viable. We will make reasonable efforts to notify you by the email address associated with your account or the next time you attempt to access your account.</p>
           <p>In all such cases, the Terms shall terminate, except that the following sections shall continue to apply: Release and Indemnification, Disclaimer; Limitation of Liability, Governing Law, Miscellaneous.</p>
 
