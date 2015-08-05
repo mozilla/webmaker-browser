@@ -34,6 +34,7 @@ var Routes = (
     <Route path="/project" handler={Project} />
     <Redirect from="/player" to="/project" />
     <Route path="/legal" handler={TOS} />
+    <Route path="/project-not-found" handler={ErrorView} />
     <NotFoundRoute handler={ErrorView} />
     <DefaultRoute handler={Splash} />
   </Route>
