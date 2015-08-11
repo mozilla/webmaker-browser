@@ -13,10 +13,8 @@ var NotFoundRoute = Router.NotFoundRoute;
 var DefaultRoute = Router.DefaultRoute;
 var RouteHandler = Router.RouteHandler;
 
-var intlData = {
-    locales : ['en-US'],
-    messages: require('./locales/en-US.json')
-};
+var intlData = require('./util/i18n').intlData;
+
 
 /**
  * Create base class
@@ -36,7 +34,7 @@ var Routes = (
     <Route path="/project" handler={Project} />
     <Route path="/legal" handler={Legal} />
     <Route path="/project-not-found" handler={ErrorView} />
-    
+
     <Redirect from="/player" to="/project" />
 
     <NotFoundRoute handler={ErrorView} />
