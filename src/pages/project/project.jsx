@@ -60,7 +60,7 @@ module.exports = React.createClass({
         return console.error('Could not fetch the page');
       }
 
-      platform.trackEvent('Browser Player', 'Open Project', 'Open Project Success', options.uri);
+      platform.trackEvent('Browser Player', 'Open Project Success', options.uri);
 
       this.setState({
         projectAuthor: body.project.author.username,

@@ -31,7 +31,7 @@ var AppCta = React.createClass({
   },
   openApp: function () {
 
-    platform.trackEvent('Browser Player', 'Click CTA', 'CTA: Open app', this.getDeepLink());
+    platform.trackEvent('Browser Player', 'Click CTA Open App', this.getDeepLink());
 
     this.setState({
       loading: true
