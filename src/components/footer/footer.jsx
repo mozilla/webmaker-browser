@@ -7,7 +7,7 @@ module.exports = React.createClass({
       <div id="footer">
         <div className="inner">
           <ul className="links">
-            <li><a href="https://webmaker.org/en-US/terms">{this.getIntlMessage('legal')}</a></li>
+            <li><a href="https://webmaker.org/#/legal">{this.getIntlMessage('legal')}</a></li>
             <li><a href="https://www.mozilla.org/en-US/privacy/websites/">{this.getIntlMessage('privacy')}</a></li>
             <li><a target="_blank" href="https://sendto.mozilla.org/page/contribute/join-mozilla?source=join_link">{this.getIntlMessage('donate')}</a></li>
             <li><a href="mailto:help@webmaker.org">{this.getIntlMessage('contact')}</a></li>
