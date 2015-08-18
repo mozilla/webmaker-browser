@@ -1,6 +1,8 @@
 var React = require('react');
 var cookie = require('react-cookie');
 var platform = require('webmaker-core/src/lib/platform');
+var UAParser = require('ua-parser-js');
+var ua = new UAParser().getResult();
 
 var AppCta = React.createClass({
   statics: {
@@ -29,6 +31,11 @@ var AppCta = React.createClass({
       loading: false
     });
   },
+  isAndroid: function () {
+    if (ua && ua.os && ua.os.name === 'Android') {
+      return true;
+    }
+  },
   openApp: function () {
 
     platform.trackEvent('Browser Player', 'Click CTA Open App', this.getDeepLink());
@@ -36,9 +43,15 @@ var AppCta = React.createClass({
     this.setState({
       loading: true
     });
+
+    if (!this.isAndroid()) {
+      return window.location = AppCta.FALLBACK_URL;
+    }
+
     this.timeout = setTimeout(function () {
       window.location = AppCta.FALLBACK_URL;
     }, 1000);
+
     window.location = this.getDeepLink();
   },
   closeCta: function () {
