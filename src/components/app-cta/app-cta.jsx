@@ -45,7 +45,8 @@ var AppCta = React.createClass({
     });
 
     if (!this.isAndroid()) {
-      return window.location = AppCta.FALLBACK_URL;
+      window.location = AppCta.FALLBACK_URL;
+      return;
     }
 
     this.timeout = setTimeout(function () {
