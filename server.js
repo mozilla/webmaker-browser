@@ -2,8 +2,10 @@ var Hapi = require('hapi');
 var Path = require('path');
 var qs = require('querystring');
 var bunyan = require('bunyan');
+var nets = require('nets');
 
 var bsd = require('./src/util/bsd');
+var config = require('./src/config');
 
 // Create server
 var server = new Hapi.Server({
@@ -34,12 +36,54 @@ server.register({
   }
 });
 
+
+server.views({
+  engines: {
+    html: require('handlebars')
+  },
+  relativeTo: __dirname,
+  path: './views',
+});
+
 // Route handlers
 server.route({
   method: 'GET',
   path: '/',
   handler: function (request, reply) {
-    reply.file('index.html');
+    if (!request.query.project) {
+      reply.file('index.html');
+    } else {
+      var options = {
+        method: 'GET',
+        uri: config.API_URI +
+        '/users/' + request.query.user +
+        '/projects/' + request.query.project,
+        json: {}
+      };
+
+      nets(options, function (err, res, body) {
+        if (err || res.statusCode !== 200) {
+          reply.file('index.html');
+          return;
+        }
+
+        var images = body.project.thumbnail;
+        var thumb;
+
+        if (images && images[320]) {
+          thumb = images[320];
+        }
+
+        reply.view(
+          'project',
+          {
+            user: body.project.author.username,
+            title: body.project.title,
+            image: thumb,
+            host: request.info.host
+          });
+      });
+    }
   }
 });
 
@@ -47,7 +91,7 @@ server.route({
   method: 'GET',
   path: '/users/{user}/projects/{project}',
   handler: function (request, reply) {
-    reply.redirect('/#/project?' + qs.stringify(request.params));
+    reply.redirect('/?' + qs.stringify(request.params) + '#/project?' + qs.stringify(request.params));
   }
 });
 
