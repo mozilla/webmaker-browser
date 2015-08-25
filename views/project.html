@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <script src="//cdn.optimizely.com/js/206878104.js"></script>
+    <meta content="text/html; charset=utf-8">
+
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Webmaker</title>
+
+    <link rel="stylesheet" href="./css/normalize.css">
+    <link rel="stylesheet" href="./css/main.css">
+    <link rel="stylesheet" href="//code.cdn.mozilla.net/fonts/fira.css">
+
+    <meta property="og:title" content="{{ title }} by {{ user }}" />
+    <meta property="og:image" content="{{ image }}" />
+    <meta property="og:image" content="http://{{ host }}/img/newlogo.png" / />
+  </head>
+
+  <body>
+    <!-- Scripts -->
+    <script src="./js/lib/react.min.js"></script>
+    <script src="./js/lib/Intl.js"></script>
+    <script src="./js/main.bundle.js"></script>
+
+    <!-- Analytics -->
+    <script>
+      (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
+      function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;
+      e=o.createElement(i);r=o.getElementsByTagName(i)[0];
+      e.src='https://www.google-analytics.com/analytics.js';
+      r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
+      ga('create','UA-35433268-12','auto');ga('send','pageview');
+    </script>
+  </body>
+</html>
