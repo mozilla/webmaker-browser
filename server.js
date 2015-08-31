@@ -4,7 +4,6 @@ var qs = require('querystring');
 var bunyan = require('bunyan');
 var nets = require('nets');
 
-var bsd = require('./src/util/bsd');
 var config = require('./src/config');
 
 // Create server
@@ -100,20 +99,6 @@ server.route({
   path: '/favicon.ico',
   handler: function (request, reply) {
     reply.file('favicon.ico');
-  }
-});
-
-server.route({
-  method: 'POST',
-  path: '/signup',
-  handler: function (request, reply) {
-    bsd(request.payload.email, function (err, body) {
-      if (err) {
-        return reply({ok:false});
-      }
-    });
-
-    reply({ok:true});
   }
 });
 
