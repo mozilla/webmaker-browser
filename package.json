@@ -13,7 +13,7 @@
     "build:l10njson": "yamlconvert intl-config.json",
     "build:css": "npm run watch:css -- --no-watch",
     "build:js": "npm run build:core && npm run config && webpack",
-    "build:core": "node npm_tasks/build-core.js",
+    "build:core": "node npm_tasks/copy-env.js && node npm_tasks/build-core.js",
     "watch:js": "npm run build:js -- --watch",
     "watch:css": "autoless --autoprefix \"> 5%, last 2 versions, android >= 4.0\" ./src ./build/css",
     "test": "npm-run-all test:**",
