@@ -16,7 +16,7 @@
     "build:core": "node npm_tasks/copy-env.js && node npm_tasks/build-core.js",
     "watch:js": "npm run build:js -- --watch",
     "watch:css": "autoless --autoprefix \"> 5%, last 2 versions, android >= 4.0\" ./src ./build/css",
-    "test": "npm-run-all test:**",
+    "test": "npm run test:lint",
     "test:lint": "jsxhint --harmony --config ./node_modules/mofo-style/linters/.jshintrc \"./src/{**,.}/*.{js,jsx}\"",
     "test:unit": "mocha -R spec ./test/unit/*.js",
     "server": "node server.js"
