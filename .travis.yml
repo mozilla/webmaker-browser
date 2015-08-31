@@ -6,7 +6,7 @@ sudo: false
 deploy:
   provider: heroku
   api_key:
-    secure: kPmdL7/P08RI41kN5YKJ3T+GT+eDzef3ZiC4TUE4QI1RSIv9103RRvlaYxdlDk2hgLyeBoX1a5v/jgowMTjhYFRgcbuXiCzlH9xu0mTbFEmO6hQw8L6Alhi+/ocxvl7cWD4kpCtpey497dT9ZbGYk/Fze+VcKVSXiaUvOWKFqQ0=
+    secure: EzrSIqqULIoSkIK/GWKdhQ84XlMBOkOzLho2Ei4DpKTUpM9kW5kU0oAzpw4EUORUEKnkTQWwdnDvmsOPBWdL/lMY6SXMdIGG2wf1HEVqjg0Xceq0LrqjUBoMuPgHWjXBKNgobU6uIYpfgQPxHLFqaJvlTNfVydJ52v6S2IXND54=
   app:
     master: webmaker-desktop-production
     develop: webmaker-desktop-staging
