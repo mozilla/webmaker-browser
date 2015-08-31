@@ -1,5 +1,5 @@
 ## Webmaker for Browser
- 
+
 [![Build Status](https://travis-ci.org/mozilla/webmaker-browser.svg)](https://travis-ci.org/mozilla/webmaker-browser)
 
 Mozilla Webmaker's mission is to help enable a new generation of digital creators and webmakers, giving people the tools and skills they need to move from using the Web to actively making the Web.
