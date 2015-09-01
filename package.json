@@ -13,10 +13,10 @@
     "build:l10njson": "yamlconvert intl-config.json",
     "build:css": "npm run watch:css -- --no-watch",
     "build:js": "npm run build:core && npm run config && webpack",
-    "build:core": "node npm_tasks/build-core.js",
+    "build:core": "node npm_tasks/copy-env.js && node npm_tasks/build-core.js",
     "watch:js": "npm run build:js -- --watch",
     "watch:css": "autoless --autoprefix \"> 5%, last 2 versions, android >= 4.0\" ./src ./build/css",
-    "test": "npm-run-all test:**",
+    "test": "npm run test:lint",
     "test:lint": "jsxhint --harmony --config ./node_modules/mofo-style/linters/.jshintrc \"./src/{**,.}/*.{js,jsx}\"",
     "test:unit": "mocha -R spec ./test/unit/*.js",
     "server": "node server.js"
@@ -34,12 +34,14 @@
     "classnames": "2.1.2",
     "color": "0.8.0",
     "email-validator": "1.0.1",
+    "handlebars": "3.0.3",
     "hapi": "8.6.0",
     "hapi-bunyan": "0.6.0",
     "nets": "3.1.0",
     "react-intl": "^1.2.0",
     "react-router": "0.13.3",
-    "webmaker-core": "https://github.com/mozilla/webmaker-core.git"
+    "webmaker-core": "https://github.com/mozilla/webmaker-core.git#19dccb3d85a6b4b1aa6cd3a15f3aaeff573bac57",
+    "ua-parser-js": "0.7.9"
   },
   "devDependencies": {
     "autoless": "~0.1.7",

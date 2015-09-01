@@ -126,7 +126,7 @@ module.exports = React.createClass({
           </h1>
         </header>
         <AppCta project={this.state.params.project} user={this.state.params.user} />
-        <div id="map" className={ mode }>
+        <div ref="map" id="map" className={ mode }>
           <DPad
             ref="dpad"
             onDirectionClick={ this.handleDirectionClick }
