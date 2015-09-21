@@ -59,7 +59,7 @@
     "npm-run-all": "~1.2.4",
     "react-cookie": "0.2.5",
     "rimraf": "~2.3.4",
-    "webpack": "~1.9.10",
+    "webpack": "~1.12.2",
     "yaml-intl-xml-json-converter": "0.0.7"
   },
   "engines": {
