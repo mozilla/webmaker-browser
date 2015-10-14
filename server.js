@@ -104,6 +104,14 @@ server.route({
 
 server.route({
   method: 'GET',
+  path: '/me',
+  handler: function (request, reply) {
+    reply.redirect(process.env.TEACH_ME_PAGE_URL);
+  }
+});
+
+server.route({
+  method: 'GET',
   path: '/{path}/{param*}',
   handler: {
     directory: {
