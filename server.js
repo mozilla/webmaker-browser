@@ -102,12 +102,20 @@ server.route({
   }
 });
 
+var meRedirect = function (request, reply) {
+  reply.redirect(process.env.TEACH_ME_PAGE_URL);
+};
+
 server.route({
   method: 'GET',
   path: '/me',
-  handler: function (request, reply) {
-    reply.redirect(process.env.TEACH_ME_PAGE_URL);
-  }
+  handler: meRedirect
+});
+
+server.route({
+  method: 'GET',
+  path: '/{locale}/me',
+  handler: meRedirect
 });
 
 server.route({
