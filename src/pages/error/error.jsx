@@ -1,22 +1,20 @@
-var React = require('react/addons');
+var React = require('react');
 var Footer = require('../../components/footer/footer.jsx');
 var Masthead = require('../../components/masthead/masthead.jsx');
-var FormattedMessage = require('react-intl').FormattedMessage;
+var {defineMessages, injectIntl, intlShape, FormattedMessage} = require('react-intl');
 
-module.exports = React.createClass({
-  mixins: [
-    React.addons.LinkedStateMixin,
-    require('react-router').State,
-    require('react-intl').IntlMixin
-  ],
+var Error = React.createClass({
   render: function () {
-    var helpLink = (<a href="mailto:help@webmaker.org">{this.getIntlMessage('give_us_a_shout')}</a>);
+    var messages = this.props.intl.messages;
+    var helpLink = (<a href="mailto:help@webmaker.org">{messages['give_us_a_shout']}</a>);
     var teachSiteLink = (<a href="https://teach.mozilla.org/">teach.mozilla.org</a>);
-    var currentPath = this.getPathname();
-    var errorMessage = this.getIntlMessage('page_404');
+    var currentPath = this.props.location.pathname;
+    var errorMessage = messages['page_404'];
+
     if (currentPath === '/project-not-found') {
-      errorMessage = this.getIntlMessage('project_404');
+      errorMessage = messages['project_404'];
     }
+
     return (
       <div id="splash" className="error">
         <Masthead/>
@@ -27,14 +25,16 @@ module.exports = React.createClass({
             <h2>{errorMessage}</h2>
             <p>
               <FormattedMessage
-                message={this.getIntlMessage('give_us_a_shout_sentence')}
-                GiveUsAShoutLink={helpLink} />
+                id="giveShout"
+                defaultMessage={messages['give_us_a_shout_sentence']}
+                values={{GiveUsAShoutLink: helpLink}} />
             </p>
-            <a className="btn" href="#/">{this.getIntlMessage('return_to_webmaker')}</a>
+            <a className="btn" href="#/">{messages['return_to_webmaker']}</a>
             <p>
               <FormattedMessage
-                message={this.getIntlMessage('or_visit_teach_mozilla_org')}
-                LinkToTeachSite={teachSiteLink} />
+                id="teachLink"
+                defaultMessage={messages['or_visit_teach_mozilla_org']}
+                values={{LinkToTeachSite: teachSiteLink}} />
             </p>
           </div>
         </div>
@@ -44,3 +44,5 @@ module.exports = React.createClass({
     );
   }
 });
+
+module.exports = injectIntl(Error);

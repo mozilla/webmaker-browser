@@ -10,8 +10,9 @@ module.exports = {
   },
   externals: {
     'react': 'React',
-    'react/addons': 'React'
+    'react-dom': 'ReactDOM'
   },
+  devtool: 'source-map',
   fallback: path.join(__dirname, "node_modules"),
   module: {
     loaders: [
