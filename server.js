@@ -102,6 +102,23 @@ server.route({
   }
 });
 
+// X-Ray Goggles redirect
+if (process.env.GOGGLES_URL) {
+  var gogglesRedirect = function (request, reply) {
+    reply.redirect(process.env.GOGGLES_URL);
+  };
+
+  server.route([{
+    method: 'GET',
+    path: '/goggles',
+    handler: gogglesRedirect
+  }, {
+    method: 'GET',
+    path: '/{locale}/goggles',
+    handler: gogglesRedirect
+  }]);
+}
+
 var meRedirect = function (request, reply) {
   reply.redirect(process.env.TEACH_ME_PAGE_URL);
 };
