@@ -1,5 +1,7 @@
 var React = require('react');
-var Router = require('react-router');
+var ReactDOM = require('react-dom');
+var {Router, Route, Redirect, IndexRoute} = require('react-router');
+var {IntlProvider} = require('react-intl');
 
 var Splash = require('./pages/splash/splash.jsx');
 var Legal = require('./pages/legal/legal.jsx');
@@ -7,50 +9,32 @@ var Thumbnail = require('./pages/thumbnail/thumbnail.jsx');
 var Project = require('./pages/project/project.jsx');
 var ErrorView = require('./pages/error/error.jsx');
 
-var Route = Router.Route;
-var Redirect = Router.Redirect;
-var NotFoundRoute = Router.NotFoundRoute;
-var DefaultRoute = Router.DefaultRoute;
-var RouteHandler = Router.RouteHandler;
-
 var intlData = require('./util/i18n').intlData;
-
 
 /**
  * Create base class
  */
 var App = React.createClass({
   render: function () {
-    return <RouteHandler {...intlData} />;
+    return React.cloneElement(this.props.children);
   }
 });
 
-/**
- * Define routes
- */
-var Routes = (
-  <Route path="/" handler={App}>
-    <Route path="/thumbnail" handler={Thumbnail} />
-    <Route path="/project" handler={Project} />
-    <Route path="/legal" handler={Legal} />
-    <Route path="/project-not-found" handler={ErrorView} />
-
-    <Redirect from="/player" to="/project" />
-
-    <NotFoundRoute handler={ErrorView} />
-    <DefaultRoute handler={Splash} />
-  </Route>
-);
-
-/**
- * Start router
- */
-Router.run(Routes, Router.HashLocation, (Root) => {
-  React.render(<Root />, document.body, function () {
-    // After the content is rendered we need to manually activate
-    // any Optimizely experiment running on this site
-    // https://help.optimizely.com/hc/en-us/articles/200040225#conditional
-    window.optimizely = window.optimizely || [];
-    window.optimizely.push(["activate"]);
-  });
+ReactDOM.render((
+  <IntlProvider locale="en" messages={intlData.messages}>
+    <Router>
+      <Route path="/" component={App}>
+        <IndexRoute component={Splash}/>
+        <Route path="/legal" component={Legal}/>
+        <Redirect from="/player" to="/project"/>
+        <Route path="/project" component={Project}/>
+        <Route path="/thumbnail" component={Thumbnail}/>
+        <Route path="/project-not-found" component={ErrorView}/>
+        <Route path="*" component={ErrorView}/>
+      </Route>
+    </Router>
+  </IntlProvider>
+), document.querySelector('#app'), () => {
+  window.optimizely = window.optimizely || [];
+  window.optimizely.push(["activate"]);
 });

@@ -17,9 +17,9 @@ module.exports = React.createClass({
     var options = {
       method: 'GET',
       uri: config.API_URI +
-        '/users/' + this.props.query.user +
-        '/projects/' + this.props.query.project +
-        '/pages/' + this.props.query.page,
+        '/users/' + this.props.location.query.user +
+        '/projects/' + this.props.location.query.project +
+        '/pages/' + this.props.location.query.page,
       json: {}
     };
 
