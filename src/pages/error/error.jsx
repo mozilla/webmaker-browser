@@ -29,7 +29,7 @@ var Error = React.createClass({
                 defaultMessage={messages['give_us_a_shout_sentence']}
                 values={{GiveUsAShoutLink: helpLink}} />
             </p>
-            <a className="btn" href="#/">{messages['return_to_webmaker']}</a>
+            <a className="btn btn-uppercase" href="#/">{messages['return_to_webmaker']}</a>
             <p>
               <FormattedMessage
                 id="teachLink"
