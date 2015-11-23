@@ -1,16 +1,15 @@
 var React = require('react');
+var {defineMessages, injectIntl, intlShape, FormattedMessage} = require('react-intl');
 var {parseJSON} = require('webmaker-core/src/lib/jsonUtils');
 var nets = require('nets');
 var config = require('../../config');
 var platform = require('webmaker-core/src/lib/platform');
 
 var DPad = require('webmaker-core/src/components/d-pad/d-pad.jsx');
-var FormattedMessage = require('react-intl').FormattedMessage;
 var AppCta = require('../../components/app-cta/app-cta.jsx');
 
-module.exports = React.createClass({
+var Project = React.createClass({
   mixins: [
-    require('react-router').Navigation,
     require('webmaker-core/src/pages/project/transforms'),
     require('webmaker-core/src/pages/project/remix'),
     require('webmaker-core/src/pages/project/cartzoom'),
@@ -19,8 +18,7 @@ module.exports = React.createClass({
     require('webmaker-core/src/pages/project/setdestination'),
     require('webmaker-core/src/pages/project/renderhelpers'),
     require('webmaker-core/src/pages/project/dpad-logic'),
-    require('webmaker-core/src/pages/project/form-pages'),
-    require('react-intl').IntlMixin
+    require('webmaker-core/src/pages/project/form-pages')//,
   ],
 
   getInitialState: function () {
@@ -32,8 +30,8 @@ module.exports = React.createClass({
       isPageZoomed: false,
       isFirstLoad: true,
       params: {
-        user: this.props.query.user,
-        project: this.props.query.project,
+        user: this.props.location.query.user,
+        project: this.props.location.query.project,
         mode: 'play'
       },
       projectName: 'Untitled',
@@ -51,14 +49,14 @@ module.exports = React.createClass({
     var options = {
       method: 'GET',
       uri: config.API_URI +
-        '/users/' + this.props.query.user +
-        '/projects/' + this.props.query.project,
+        '/users/' + this.props.location.query.user +
+        '/projects/' + this.props.location.query.project,
       json: {}
     };
 
     nets(options, (err, res, body) => {
       if (res.statusCode === 404) {
-        return this.replaceWith('/project-not-found?user=' + this.props.query.user + '&project=' + this.props.query.project);
+        return this.replaceWith('/project-not-found?user=' + this.props.location.query.user + '&project=' + this.props.location.query.project);
       }
 
       if (err || res.statusCode !== 200) {
@@ -112,6 +110,7 @@ module.exports = React.createClass({
     // FIXME: TODO: This should be done by preventDefaulting the touch event, not via CSS.
     // FIXME: TODO: Add <Loading /> component after localization is initialized
     document.body.style.overflowY = 'hidden';
+    var messages = this.props.intl.messages;
     var mode = this.state.params.mode;
     var isPlayOnly = (mode === 'play' || mode === 'link');
     return (
@@ -120,9 +119,12 @@ module.exports = React.createClass({
           <a href="/"><img src="/img/newlogo.png"/></a>
           <h1>
             <FormattedMessage
-              message={this.getIntlMessage('project_title_play_page')}
-              projectName={ this.state.projectName }
-              projectAuthor={ this.state.projectAuthor }/>
+              id="projectTitle"
+              defaultMessage={messages['project_title_play_page']}
+              values={{
+                projectName: this.state.projectName,
+                projectAuthor: this.state.projectAuthor
+              }}/>
           </h1>
         </header>
         <AppCta project={this.state.params.project} user={this.state.params.user} />
@@ -145,3 +147,5 @@ module.exports = React.createClass({
     );
   }
 });
+
+module.exports = injectIntl(Project);

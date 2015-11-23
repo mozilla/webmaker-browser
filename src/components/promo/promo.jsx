@@ -18,7 +18,7 @@ module.exports = React.createClass({
                width="100" />
           <h3>{this.props.head}</h3>
           <h4>{this.props.subhead}</h4>
-          <a href={this.props.ctaLink} className="btn">{this.props.ctaText}</a>
+          <a href={this.props.ctaLink} className="btn btn-uppercase">{this.props.ctaText}</a>
         </div>
       </div>
     );

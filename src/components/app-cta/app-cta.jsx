@@ -3,14 +3,12 @@ var cookie = require('react-cookie');
 var platform = require('webmaker-core/src/lib/platform');
 var UAParser = require('ua-parser-js');
 var ua = new UAParser().getResult();
+var {defineMessages, injectIntl, intlShape, FormattedMessage} = require('react-intl');
 
 var AppCta = React.createClass({
   statics: {
     FALLBACK_URL: 'https://play.google.com/store/apps/details?id=org.mozilla.webmaker'
   },
-  mixins: [
-    require('react-intl').IntlMixin
-  ],
   getInitialState: function () {
     return {
       hidden: cookie.load('hideCTA') ? true : false
@@ -66,20 +64,22 @@ var AppCta = React.createClass({
     });
   },
   render: function () {
+    var messages = this.props.intl.messages;
+
     return (<header className={'app-cta' + (this.state.hidden ? ' hidden' : '')}>
       <div className="left">
-        <h3>{this.getIntlMessage('use_webmaker_app')}</h3>
-        <p>{this.getIntlMessage('like_it_better')}</p>
+        <h3>{messages['use_webmaker_app']}</h3>
+        <p>{messages['like_it_better']}</p>
       </div>
       <div className="right">
         <button onClick={this.openApp}>
-          <span hidden={this.state.loading}>{this.getIntlMessage('open_app')}</span>
-          <span hidden={!this.state.loading} className="open-loading">{this.getIntlMessage('searching')}</span>
+          <span hidden={this.state.loading}>{messages['open_app']}</span>
+          <span hidden={!this.state.loading} className="open-loading">{messages['searching']}</span>
         </button>
-        <button onClick={this.closeCta}><img src="./img/icon-close.svg" alt="{this.getIntlMessage('close_message')}"/></button>
+        <button onClick={this.closeCta}><img src="./img/icon-close.svg" alt="{messages['close_message']}"/></button>
       </div>
     </header>);
   }
 });
 
-module.exports = AppCta;
+module.exports = injectIntl(AppCta);
