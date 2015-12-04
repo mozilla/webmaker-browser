@@ -30,14 +30,17 @@ module.exports = React.createClass({
         return console.error('Could not fetch the page');
       }
 
-      this.setState({elements: this.flatten(body.page.elements)});
+      this.setState({
+        elements: this.flatten(body.page.elements), 
+        background: body.page.styles.backgroundColor || "#F2F6FC"
+      });
     });
   },
   render: function () {
     return (
       <div id="thumbnail">
         <div className="container">
-          <div className="inner">
+          <div className="inner" style={{background: this.state.background}}>
             <ElementGroup
               ref="container"
               interactive={false}
