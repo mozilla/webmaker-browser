@@ -1,5 +1,5 @@
 var React = require('react');
-var MakerPartyPromo = require('../../components/promo/promo.jsx');
+var Promo = require('../../components/promo/promo.jsx');
 var Footer = require('../../components/footer/footer.jsx');
 var Masthead = require('../../components/masthead/masthead.jsx');
 var {defineMessages, injectIntl, intlShape, FormattedMessage} = require('react-intl');
@@ -45,14 +45,14 @@ var Splash = React.createClass({
           </div>
         </div>
 
-        <div id="mp-promo">
-          <MakerPartyPromo
-            logoAlt="Maker Party Promo"
-            logoSrc="./img/maker-party@2x.png"
-            head={messages['host_maker_party']}
-            subhead={messages['maker_party_cta']}
-            ctaText={messages['get_started']}
-            ctaLink="https://teach.mozilla.org/events/?ref=beta.webmaker.org"
+        <div id="thimble-promo">
+          <Promo
+            logoAlt="Thimble Logo"
+            logoSrc="./img/thimble.svg"
+            head={messages['thimble_write_web']}
+            subhead={messages['thimble_cta']}
+            ctaText={messages['thimble_try']}
+            ctaLink="https://thimble.mozilla.org/?ref=webmaker.org"
           />
         </div>
 
