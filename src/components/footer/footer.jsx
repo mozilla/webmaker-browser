@@ -13,7 +13,6 @@ var Footer = React.createClass({
             <li><a href="https://www.mozilla.org/en-US/privacy/websites/">{messages['privacy']}</a></li>
             <li><a target="_blank" href="https://sendto.mozilla.org/page/contribute/join-mozilla?source=join_link">{messages['donate']}</a></li>
             <li><a target="_blank" href="https://twitter.com/mozilla">{messages['twitter']}</a></li>
-            </li>
           </ul>
           <img src="./img/mozilla.svg" width="98" height="25" alt="Mozilla" />
         </div>
